@@ -5,6 +5,7 @@ import {ForumComponent} from './pages/forum/forum.component';
 import { LoginComponent } from './pages/login/login.component';
 import {TestPageComponent} from './pages/test-page/test-page.component';
 import {CourseDetailComponent} from './pages/course-detail/course-detail.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 const routes: Routes = [
   {
@@ -26,7 +27,12 @@ const routes: Routes = [
   {
     path: 'course/:id',
     component: CourseDetailComponent
-  }
+  },
+  {
+    path: 'register',
+    component:RegisterComponent,
+  },
+  
 ];
 
 @NgModule({

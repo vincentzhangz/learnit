@@ -25,6 +25,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './pages/register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     ItemCardMediumComponent,
     TestPageComponent,
-    CourseDetailComponent
+    CourseDetailComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
