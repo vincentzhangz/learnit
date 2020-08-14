@@ -16,6 +16,10 @@ import { LoginComponent } from './pages/login/login.component';
 import { ItemCardMediumComponent } from './components/item-card-medium/item-card-medium.component';
 import {MatCardModule} from '@angular/material/card';
 import { TestPageComponent } from './pages/test-page/test-page.component';
+import { CourseDetailComponent } from './pages/course-detail/course-detail.component';
+import {RatingModule} from 'ng-starrating';
+import {NgxStarsModule} from 'ngx-stars';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 import {MatInputModule} from '@angular/material/input';
@@ -27,7 +31,8 @@ import {MatSelectModule} from '@angular/material/select';
     HomeComponent,
     LoginComponent,
     ItemCardMediumComponent,
-    TestPageComponent
+    TestPageComponent,
+    CourseDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +46,10 @@ import {MatSelectModule} from '@angular/material/select';
     FlexLayoutModule,
     MatCardModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    RatingModule,
+    NgxStarsModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
