@@ -13,13 +13,21 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {ForumComponent} from './pages/forum/forum.component';
 import {HomeComponent} from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { ItemCardMediumComponent } from './components/item-card-medium/item-card-medium.component';
+import {MatCardModule} from '@angular/material/card';
+import { TestPageComponent } from './pages/test-page/test-page.component';
 
+
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
 @NgModule({
   declarations: [
     AppComponent,
     ForumComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    ItemCardMediumComponent,
+    TestPageComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +38,10 @@ import { LoginComponent } from './pages/login/login.component';
     MatSidenavModule,
     MatListModule,
     MatButtonModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatCardModule,
+    MatInputModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
