@@ -1,0 +1,35 @@
+<mat-card class="container">
+
+  <div class="course-detail-container">
+    <div class="course-detail-image">
+      <img src="/assets/test_image.jpg" alt="Course Image" height="150" width="250">
+    </div>
+
+    <div class="course-detail-data">
+      <div>
+        <h1> Course Title</h1>
+      </div>
+      <div>
+        Course Maker
+      </div>
+      <div>
+        <ngx-stars [readonly]="true" [size]="1" [initialStars]="2.5" [color]="'#ffbb00'"></ngx-stars>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <mat-tab-group>
+      <mat-tab label="Information">
+        Information
+      </mat-tab>
+      <mat-tab label="Module">
+        Module list here
+      </mat-tab>
+      <mat-tab label="Assignment">
+        Assignment list here
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+
+</mat-card>
