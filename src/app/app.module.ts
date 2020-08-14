@@ -12,12 +12,17 @@ import {MatButtonModule} from '@angular/material/button';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {ForumComponent} from './pages/forum/forum.component';
 import {HomeComponent} from './pages/home/home.component';
+import {ItemCardMediumComponent} from './components/item-card-medium/item-card-medium.component';
+import {MatCardModule} from '@angular/material/card';
+import { TestPageComponent } from './pages/test-page/test-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ForumComponent,
-    HomeComponent
+    HomeComponent,
+    ItemCardMediumComponent,
+    TestPageComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +33,8 @@ import {HomeComponent} from './pages/home/home.component';
     MatSidenavModule,
     MatListModule,
     MatButtonModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
