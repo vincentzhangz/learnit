@@ -1,17 +1,17 @@
 <div class="container">
-    <form action="">
+    <form action=""  [formGroup]="loginForm">
         <h1>Login Form</h1>
         <mat-form-field class="form-input">
-            <input matInput placeholder="Name">
+            <input matInput placeholder="Name" formControlName="name">
         </mat-form-field>
         <mat-form-field class="form-input">
-            <input matInput placeholder="Email">
+            <input matInput placeholder="Email"  formControlName="email">
         </mat-form-field>
         <mat-form-field class="form-input">
-            <input matInput placeholder="Password" type="password">
+            <input matInput placeholder="Password" type="password"  formControlName="password">
         </mat-form-field>
         <mat-form-field>
-            <mat-select placeholder="Gender" class="form-input">
+            <mat-select placeholder="Gender" class="form-input" formControlName="gender">
                 <mat-option value="Male">
                     Male
                 </mat-option>
@@ -21,7 +21,7 @@
             </mat-select>
         </mat-form-field>
         <mat-form-field >
-            <mat-select placeholder="Role" class="form-input">
+            <mat-select placeholder="Role" class="form-input"  formControlName="role">
                 <mat-option value="Student">
                     Student
                 </mat-option>
