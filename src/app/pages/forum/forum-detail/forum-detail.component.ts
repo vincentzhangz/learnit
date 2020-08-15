@@ -31,7 +31,7 @@ export class ForumDetailComponent implements OnInit {
   }
 
   comments: Comment[] = []
-
+  
   ngOnInit(): void {
     this.myComment = new Comment()
     this.myComment.user_id = sessionStorage.getItem("userId")
@@ -43,8 +43,9 @@ export class ForumDetailComponent implements OnInit {
     })
     this.api.getThreadsByForumId(this.id).subscribe(res=>{
       this.threads = res;
+      
       for(let i=0; i<this.threads.length; i++){
-        this.comments.push(... this.threads[i].commentthread);
+        console.log(this.threads[i].commentthread);
       }
       // console.log(res[0].commentthread)
       // for(let i=0; i<this.threads.length;i++){

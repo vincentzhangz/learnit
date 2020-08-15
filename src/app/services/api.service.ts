@@ -24,10 +24,18 @@ export class ApiService {
   }
 
   public createCourse(course: any): Observable<any> {
-    console.log(this.getHttpOptions())
     return this.httpClient.post(`${this.url}/course/`, course,this.getHttpOptions());
   }
-
+  public getEnrolledCourses(userid : string){
+    return this.httpClient.get(
+      `${this.url}/enroll/${userid}`, this.getHttpOptions()
+    );
+  }
+  public getProgress(userid : string){
+    return this.httpClient.get(
+      `${this.url}/enroll/progress/${userid}`, this.getHttpOptions()
+    );
+  }
   public getCurrentUser(): Observable<any> {
     return this.httpClient.get(
       `${this.url}/user`,
