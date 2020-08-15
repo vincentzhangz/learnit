@@ -1,5 +1,5 @@
 <div class="container">
-  <mat-card *ngFor="let f of forums" class="forum-card">
+  <mat-card *ngFor="let f of forums" class="forum-card" (click)="goToDetail(f.forum_id)">
     <mat-card-title><a class="text-link" href="#">{{f.forum_title}}</a></mat-card-title>
     <mat-card-subtitle>{{f.user_forum.user_name}}</mat-card-subtitle>
   </mat-card>

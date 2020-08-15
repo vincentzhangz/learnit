@@ -63,6 +63,9 @@ export class ForumComponent implements OnInit {
       window.location.reload();
     });
   }
-
+  
+  goToDetail(id:String):void{
+    this.router.navigateByUrl(`forum/${id}`)
+  }
 
 }
