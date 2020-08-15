@@ -7,7 +7,7 @@ import {Observable} from 'rxjs';
 })
 export class ApiService {
   host = 'http://127.0.0.1:8080';
-  url = `${this.host}/api/v1/`;
+  url = `${this.host}/api/v1`;
 
 
   constructor(private httpClient: HttpClient) {
@@ -15,6 +15,14 @@ export class ApiService {
   }
 
   public login(user: any): Observable<any> {
-    return this.httpClient.post(`${this.url}login`, user);
+    return this.httpClient.post(`${this.url}/login`, user);
+  }
+
+  public register(user: any): Observable<any> {
+    return this.httpClient.post(`${this.url}/register`, user);
+  }
+
+  public getToken(): string {
+    return sessionStorage.getItem('token');
   }
 }
