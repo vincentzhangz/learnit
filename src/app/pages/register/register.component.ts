@@ -27,4 +27,7 @@ export class RegisterComponent implements OnInit {
   test(): void {
     this.user = this.registerForm.value;
   }
+
+ 
+
 }

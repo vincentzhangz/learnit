@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="header">
+        <mat-form-field>
+            <input matInput placeholder="Course Title">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Max enroll students" type="number">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Training day" type="number">
+        </mat-form-field>
+        <div class="header-information">
+            <mat-form-field>
+                <textarea matInput color="primary" name="" id="" cols="30" rows="10"
+                    placeholder="Input course information here"></textarea>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="content">   
+        <div class="module-n" *ngFor="let item of numbers">
+            <div class="content-title">
+                <h1>Content of course {{item}}</h1>
+                <button mat-button (click)="removeModule(item)" color="primary">delete</button>
+                <button mat-button color="primary">update</button>
+            </div>
+            <mat-form-field>
+                <input matInput placeholder="Module Title {{item}}">
+            </mat-form-field>
+            <mat-form-field>
+                <textarea matInput color="primary" name="" id="" cols="30" rows="10"
+                    placeholder="Content of the module (use html to decorate)"></textarea>
+            </mat-form-field>
+            
+        </div>
+        <div class="buttons">
+            <button (click)="addNewModule()" mat-button color="primary">add new content</button>
+        </div>
+    </div>
+
+
+
+</div>

@@ -35,6 +35,7 @@ import {RegisterComponent} from './pages/register/register.component';
 import {FileUploadModule} from 'ng2-file-upload';
 import {MatBadgeModule} from '@angular/material/badge';
 import {CourseComponent} from './pages/course/course.component';
+import {CreateCourseComponent} from './pages/create-course/create-course.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import {CourseComponent} from './pages/course/course.component';
     CourseDetailComponent,
     RegisterComponent,
     CourseComponent
+    CreateCourseComponent
 
   ],
   imports: [
