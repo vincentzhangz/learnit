@@ -1,156 +1,164 @@
-<div class="container">
+<div class="container" *ngIf="forum">
 
-    <mat-card class="box">
+  <mat-card class="box">
+    <div class="header">
+      <h1>{{forum.forum_title}}</h1>
+      <div>posted by {{forum.userforum.user_name}}</div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="content">
+      {{forum.forum_content}}
+    </div>
+    <mat-divider></mat-divider>
+    <div class="reply-button">
+      <a mat-raised-button color="primary" (click)="toReply()"> Reply</a>
+    </div>
+    <button color="basic" mat-stroked-button>Comment</button>
+
+  </mat-card>
+  <!-- reply -->
+
+  <div class="thread" *ngFor="let thread of threads">
+    <div class="box" *ngIf="thread.is_correct == 'false'">
+      <mat-card class="wrong">
         <div class="header">
-            <h1>{{forum.forum_title}}</h1>
-            <div>posted by {{forum.userforum.user_name}}</div>
+          <h1>{{thread.title}}</h1>
+          <div>replied by {{thread.userthread.user_name}}</div>
         </div>
         <mat-divider></mat-divider>
         <div class="content">
-            {{forum.forum_content}}
+          {{thread.reply_content}}
         </div>
         <mat-divider></mat-divider>
-        <div class="reply-button">
-            <a mat-raised-button color="primary" (click)="toReply()"> Reply</a>
+        <div class="comment-button">
+          <div class="right-wrong">
+            <button (click)="correct(thread)" mat-mini-fab color="primary" style="background-color: #7aebb6">
+              <mat-icon>check</mat-icon>
+            </button>
+            <button (click)="wrong(thread)" mat-mini-fab style="background-color:#fa3e6a;">
+              <mat-icon>close</mat-icon>
+            </button>
+          </div>
+          <button mat-raised-button (click)="comment(thread.thread_id)">Comment</button>
         </div>
-        <button color="basic" mat-stroked-button>Comment</button>
-      
-    </mat-card>
-    <!-- reply -->
+      </mat-card>
 
-    <div class="thread" *ngFor="let thread of threads">
-        <div class="box" *ngIf="thread.is_correct == 'false'">
-            <mat-card class="wrong">
-                <div class="header">
-                    <h1>{{thread.title}}</h1>
-                    <div>replied by {{thread.userthread.user_name}}</div>
-                </div>
-                <mat-divider></mat-divider>
-                <div class="content">
-                    {{thread.reply_content}}
-                </div>
-                <mat-divider></mat-divider>
-                <div class="comment-button">
-                    <div class="right-wrong">
-                        <button (click)="correct(thread)" mat-mini-fab color="primary" style="background-color: #7aebb6">
-                            <mat-icon>check</mat-icon>
-                        </button>
-                        <button (click)="wrong(thread)" mat-mini-fab style="background-color:#fa3e6a;">
-                            <mat-icon>close</mat-icon>
-                        </button>
-                    </div>
-                    <button mat-raised-button (click)="comment(thread.thread_id)">Comment</button>
-                </div>
-            </mat-card>
-            
-            <mat-card class="comment" *ngFor="let comment of thread.comment">
-                <h2>Commented by {{comment.usercomment.user_name}}</h2>
-                <mat-card-content>
-                    {{comment.reply_content}}
-                </mat-card-content>
-            </mat-card>
-            
-         
-           
+      <div *ngIf="thread.comment">
+        <mat-card class="comment" *ngFor="let comment of thread.comment">
+          <div *ngIf="comment.usercomment.user_name">
+            <h2>Commented by {{comment.usercomment.user_name}}</h2>
+            <mat-card-content>
+              {{comment.reply_content}}
+            </mat-card-content>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+
+    <div class="box" *ngIf="thread.is_correct == 'true'">
+      <mat-card class="correct">
+        <div class="header">
+          <h1>{{thread.title}}</h1>
+          <div>replied by {{thread.userthread.user_name}}</div>
         </div>
-
-        <div class="box" *ngIf="thread.is_correct == 'true'">
-            <mat-card class="correct">
-                <div class="header">
-                    <h1>{{thread.title}}</h1>
-                    <div>replied by {{thread.userthread.user_name}}</div>
-                </div>
-                <mat-divider></mat-divider>
-                <div class="content">
-                    {{thread.reply_content}}
-                </div>
-                <mat-divider></mat-divider>
-                <div class="comment-button">
-                    <div class="right-wrong">
-                        <button (click)="correct(thread)" mat-mini-fab color="primary" style="background-color: #7aebb6">
-                            <mat-icon>check</mat-icon>
-                        </button>
-                        <button (click)="wrong(thread)" mat-mini-fab style="background-color:#fa3e6a;">
-                            <mat-icon>close</mat-icon>
-                        </button>
-                    </div>
-                    <button mat-raised-button (click)="comment(thread.thread_id)">Comment</button>
-                </div>
-            </mat-card>
-
-            <mat-card class="comment" *ngFor="let comment of thread.comment">
-                <h2>Commented by {{comment.usercomment.user_name}}</h2>
-                <mat-card-content>
-                    {{comment.reply_content}}
-                </mat-card-content>
-            </mat-card>
-            
+        <mat-divider></mat-divider>
+        <div class="content">
+          {{thread.reply_content}}
         </div>
-
-        <div class="box" *ngIf="thread.is_correct == 'netral'">
-            <mat-card>
-                <div class="header">
-                    <h1>{{thread.title}}</h1>
-                    <div>replied by {{thread.userthread.user_name}}</div>
-                </div>
-                <mat-divider></mat-divider>
-                <div class="content">
-                    {{thread.reply_content}}
-                </div>
-                <mat-divider></mat-divider>
-                <div class="comment-button">
-                    <div class="right-wrong">
-                        <button (click)="correct(thread)" mat-mini-fab color="primary" style="background-color: #7aebb6">
-                            <mat-icon>check</mat-icon>
-                        </button>
-                        <button (click)="wrong(thread)" mat-mini-fab style="background-color:#fa3e6a;">
-                            <mat-icon>close</mat-icon>
-                        </button>
-                    </div>
-                    <button mat-raised-button (click)="comment(thread.thread_id)">Comment</button>
-                </div>
-            </mat-card>
-            <mat-card class="comment" *ngFor="let comment of thread.comment">
-                <h2>Commented by {{comment.usercomment.user_name}}</h2>
-                <mat-card-content>
-                    {{comment.reply_content}}
-                </mat-card-content>
-            </mat-card>
-            
-            
-         
+        <mat-divider></mat-divider>
+        <div class="comment-button">
+          <div class="right-wrong">
+            <button (click)="correct(thread)" mat-mini-fab color="primary" style="background-color: #7aebb6">
+              <mat-icon>check</mat-icon>
+            </button>
+            <button (click)="wrong(thread)" mat-mini-fab style="background-color:#fa3e6a;">
+              <mat-icon>close</mat-icon>
+            </button>
+          </div>
+          <button mat-raised-button (click)="comment(thread.thread_id)">Comment</button>
         </div>
+      </mat-card>
+
+      <div *ngIf="thread.comment">
+        <mat-card class="comment" *ngFor="let comment of thread.comment">
+          <div *ngIf="comment.usercomment.user_name">
+            <h2>Commented by {{comment.usercomment.user_name}}</h2>
+            <mat-card-content>
+              {{comment.reply_content}}
+            </mat-card-content>
+          </div>
+        </mat-card>
+      </div>
 
     </div>
 
+    <div class="box" *ngIf="thread.is_correct == 'netral'">
+      <mat-card>
+        <div class="header">
+          <h1>{{thread.title}}</h1>
+          <div>replied by {{thread.userthread.user_name}}</div>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="content">
+          {{thread.reply_content}}
+        </div>
+        <mat-divider></mat-divider>
+        <div class="comment-button">
+          <div class="right-wrong">
+            <button (click)="correct(thread)" mat-mini-fab color="primary" style="background-color: #7aebb6">
+              <mat-icon>check</mat-icon>
+            </button>
+            <button (click)="wrong(thread)" mat-mini-fab style="background-color:#fa3e6a;">
+              <mat-icon>close</mat-icon>
+            </button>
+          </div>
+          <button mat-raised-button (click)="comment(thread.thread_id)">Comment</button>
+        </div>
+      </mat-card>
 
-    <mat-card id="reply" class="box">
-        <mat-card-title>Reply</mat-card-title>
-        <form [formGroup]="replyForm" action="">
-            <mat-form-field class="form-input">
-                <input class="form-control" formControlName="title" matInput placeholder="Title">
-            </mat-form-field>
-            <mat-form-field class="form-input">
-                <textarea class="form-control" formControlName="content" matInput placeholder="Reply"></textarea>
-            </mat-form-field>
-            <button mat-raised-button (click)="reply()" color="primary">Reply</button>
-        </form>
-    </mat-card>
+      <div *ngIf="thread.comment">
+        <mat-card class="comment" *ngFor="let comment of thread.comment">
+          <div *ngIf="comment.usercomment.user_name">
+            <h2>Commented by {{comment.usercomment.user_name}}</h2>
+            <mat-card-content>
+              {{comment.reply_content}}
+            </mat-card-content>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+
+  </div>
+
+
+  <mat-card id="reply" class="box">
+    <mat-card-title>Reply</mat-card-title>
+    <form [formGroup]="replyForm" action="">
+      <mat-form-field class="form-input">
+        <input class="form-control" formControlName="title" matInput placeholder="Title">
+      </mat-form-field>
+      <mat-form-field class="form-input">
+        <textarea class="form-control" formControlName="content" matInput placeholder="Reply"></textarea>
+      </mat-form-field>
+      <button mat-raised-button (click)="reply()" color="primary">Reply</button>
+    </form>
+  </mat-card>
 
 </div>
 
 
 <div id="modal">
-    <div class="modal-container">
-      <div>
-        <mat-form-field>
-          <textarea [(ngModel)]="myComment.reply_content" matInput placeholder="Comment Content" id="" cols="30" rows="10"></textarea>
-        </mat-form-field>
-      </div>
-      <div class="button-modal">
-        <button mat-raised-button color="primary" (click)="postComment()">Post</button> 
-      </div>
-  
+  <div class="modal-container">
+    <div>
+      <mat-form-field>
+        <textarea [(ngModel)]="myComment.reply_content" matInput placeholder="Comment Content" id="" cols="30"
+                  rows="10"></textarea>
+      </mat-form-field>
     </div>
-    
+    <div class="button-modal">
+      <button mat-raised-button color="primary" (click)="postComment()">Post</button>
+    </div>
+
   </div>
+
+</div>
