@@ -8,7 +8,7 @@ import {User} from '../../models/user';
   styleUrls: ['./home.component.sass']
 })
 export class HomeComponent implements OnInit {
-  category: any = [];
+  category: any;
   user: User;
   course: any;
 
@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
     }
 
     this.apiService.getTopCourse().subscribe(res => this.saveCourses(res));
+    this.apiService.getAllCategory().subscribe(res => this.saveCategory(res));
 
   }
 
@@ -35,5 +36,10 @@ export class HomeComponent implements OnInit {
 
   saveCourses(response): any {
     this.course = response;
+  }
+
+  saveCategory(response): any {
+    this.category = response;
+    console.log(this.category);
   }
 }

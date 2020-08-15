@@ -12,7 +12,7 @@ export class HomeCardCoursesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.course);
+    // console.log(this.course);
     // for (let i = 0; i < 10; i++) {
     //   this.courses.push({
     //     image: '../../../assets/img/lighting.jpg',

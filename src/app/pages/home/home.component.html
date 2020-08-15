@@ -8,7 +8,8 @@
   <div class="separator" *ngIf="user">
     <app-user-homepage-progress [user]="user"></app-user-homepage-progress>
   </div>
-
-  <app-item-card-category [category]="category"></app-item-card-category>
+  <div *ngIf="category">
+    <app-item-card-category [category]="category"></app-item-card-category>
+  </div>
 
 </div>
