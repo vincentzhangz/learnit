@@ -13,6 +13,7 @@ export class ItemCardMediumComponent implements OnInit {
 
   ngOnInit(): void {
     this.course = {
+      image: '../../../assets/img/lighting.jpg',
       title: 'Test Title',
       description: 'Test Desc'
     };

@@ -1,3 +1,4 @@
+import { ProfileComponent } from './pages/profile/profile.component';
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {HomeComponent} from './pages/home/home.component';
@@ -22,11 +23,15 @@ const routes: Routes = [
   },
   {
     path: 'test',
-    component: TestPageComponent
+    component: TestPageComponent,
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
   },
   {
     path: 'course/:id',
-    component: CourseDetailComponent
+    component: CourseDetailComponent,
   },
   {
     path: 'register',
