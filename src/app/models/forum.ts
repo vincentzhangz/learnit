@@ -1,12 +1,12 @@
-import { User } from './user';
+import {User} from './user';
 
 export class Forum {
-    forum_id:string;
-    course_id:string ="";
-    forum_title:string="";
-    forum_content: string="";
-    created_at: Date
-    updated_at:Date
-    user_id:string = "";
-    userforum: User
+  forum_id: string;
+  course_id: string = '';
+  forum_title: string = '';
+  forum_content: string = '';
+  created_at: Date;
+  updated_at: Date;
+  user_id = '';
+  user_forum: User;
 }

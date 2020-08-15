@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import { Course } from 'src/app/models/course';
-import { ApiService } from 'src/app/services/api.service';
-import { Forum } from 'src/app/models/forum';
-import { Router } from '@angular/router';
+import {Course} from 'src/app/models/course';
+import {ApiService} from 'src/app/services/api.service';
+import {Forum} from 'src/app/models/forum';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-forum',
@@ -11,46 +11,57 @@ import { Router } from '@angular/router';
 })
 export class ForumComponent implements OnInit {
   forums: any;
+  modal: any;
+  courses: Course[];
+  selectedCourse: Course = null;
+  forum: Forum = new Forum();
+  loggedIn: boolean;
 
-  constructor(private api:ApiService,
-    private router: Router) {
+  constructor(private api: ApiService,
+              private router: Router) {
   }
-  modal:any
-  courses:Course[]
-  selectedCourse:Course = null
-  forum: Forum = new Forum()
-  
+
   ngOnInit(): void {
-    this.modal = document.getElementById("modal")
-    
-    this.api.getForums().subscribe(res=>{
-      this.forums = res
-      // console.log(res)
-      // console.log(this.forums)
-      // console.log(res["user-forum"])
-    })
+    if (this.api.getToken()) {
+      this.loggedIn = true;
+      console.log(this.api.getToken());
+    } else {
+      this.loggedIn = false;
+    }
+
+    this.modal = document.getElementById('modal');
+
+    this.api.getForums().subscribe(res => {
+      this.saveForum(res);
+    });
 
     window.onclick = function(event) {
-      if (event.target == this.modal) {
-        this.modal.style.display = "none";
+      if (event.target === this.modal) {
+        this.modal.style.display = 'none';
       }
-    }
-    this.api.getAllCourses().subscribe(res =>{
-      this.courses = res
-    })
+    };
+    this.api.getAllCourses().subscribe(res => {
+      this.courses = res;
+    });
   }
-  postForum():void{
-    if(this.selectedCourse == null){
-      alert("Please select the course")
-      return
+
+  saveForum(response): void {
+    this.forums = response;
+    console.log(this.forums);
+  }
+
+  postForum(): void {
+    if (this.selectedCourse == null) {
+      alert('Please select the course');
+      return;
     }
-    this.forum.course_id = this.selectedCourse.course_id
-    this.forum.user_id = sessionStorage.getItem("userId")
+    this.forum.course_id = this.selectedCourse.course_id;
+    this.forum.user_id = sessionStorage.getItem('userId');
     // console.log(this.forum)
-    this.api.postForum(this.forum).subscribe(res=>{
-      alert("success")
-      window.location.reload()
-    })
+    this.api.postForum(this.forum).subscribe(res => {
+      alert('success');
+      window.location.reload();
+    });
   }
   
   goToDetail(id:String):void{

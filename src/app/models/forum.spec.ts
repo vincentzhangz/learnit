@@ -1,4 +1,4 @@
-import { Forum } from './forum';
+import {Forum} from './forum';
 
 describe('Forum', () => {
   it('should create an instance', () => {

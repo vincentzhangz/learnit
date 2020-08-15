@@ -22,8 +22,10 @@ export class ApiService {
   public register(user: any): Observable<any> {
     return this.httpClient.post(`${this.url}/register`, user);
   }
-  public createCourse(course: any): Observable<any>{
-    return this.httpClient.post(`${this.url}/course/`, course);
+
+  public createCourse(course: any): Observable<any> {
+    console.log(this.getHttpOptions())
+    return this.httpClient.post(`${this.url}/course/`, course,this.getHttpOptions());
   }
 
   public getCurrentUser(): Observable<any> {
@@ -52,8 +54,7 @@ export class ApiService {
 
   public getCourseById(id: string): Observable<any> {
     return this.httpClient.get(
-      `${this.url}/course/${id}`,
-      this.getHttpOptions()
+      `${this.url}/course/${id}`
     );
   }
   public postForum(forum:Forum):Observable<any>{
@@ -61,9 +62,10 @@ export class ApiService {
      this.getHttpOptions());
      }
 
-  public getForums():Observable<any>{
-    return this.httpClient.get(`${this.url}/forum/`,this.getHttpOptions());
+  public getForums(): Observable<any> {
+    return this.httpClient.get(`${this.url}/forum`, this.getHttpOptions());
   }
+
   public getTopCourse(): Observable<any> {
     return this.httpClient.get(
       `${this.url}/course/top/10`,

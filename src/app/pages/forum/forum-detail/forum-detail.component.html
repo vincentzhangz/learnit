@@ -13,12 +13,12 @@
         <div class="reply-button">
             <a mat-raised-button color="primary" (click)="toReply()"> Reply</a>
         </div>
+        <button color="basic" mat-stroked-button>Comment</button>
+      
     </mat-card>
     <!-- reply -->
 
     <div class="thread" *ngFor="let thread of threads">
-
-
         <div class="box" *ngIf="thread.is_correct == 'false'">
             <mat-card class="wrong">
                 <div class="header">
@@ -43,14 +43,14 @@
                 </div>
             </mat-card>
             
-            <div *ngIf="thread.commentthread !=null">
+            <!-- <div *ngIf="thread.commentthread !=null">
                 <mat-card class="comment" *ngFor="let comment of thread.commentthread">
                     <h2>Commented by [user]</h2>
                     <mat-card-content>
                         asdasdasd
                     </mat-card-content>
                 </mat-card>
-            </div>
+            </div> -->
             
          
            
@@ -80,14 +80,14 @@
                 </div>
             </mat-card>
 
-            <div *ngIf="thread.commentthread!=null">
+            <!-- <div *ngIf="thread.commentthread!=null">
                 <mat-card class="comment" *ngFor="let comment of thread.commentthread">
                     <h2>Commented by [user]</h2>
                     <mat-card-content>
                         asdasdasd
                     </mat-card-content>
                 </mat-card>
-            </div>
+            </div> -->
             
         </div>
 
@@ -114,14 +114,14 @@
                     <button mat-raised-button (click)="comment(thread.thread_id)">Comment</button>
                 </div>
             </mat-card>
-            <div *ngIf="thread.commentthread!=null">
+            <!-- <div *ngIf="thread.commentthread!=null">
                 <mat-card class="comment" *ngFor="let comment of thread.commentthread">
                     <h2>Commented by [user]</h2>
                     <mat-card-content>
                         asdasdasd
                     </mat-card-content>
                 </mat-card>
-            </div>
+            </div> -->
             
          
         </div>

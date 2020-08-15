@@ -67,8 +67,8 @@ export class ForumDetailComponent implements OnInit {
     }
   }
 
-  toReply(){
-    document.getElementById("reply").scrollIntoView()
+  toReply() {
+    document.getElementById('reply').scrollIntoView();
   }
 
   reply(){

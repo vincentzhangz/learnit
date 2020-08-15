@@ -1,9 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FileUploader} from 'ng2-file-upload';
 import {UploadFileService} from '../../services/upload-file.service';
-import { ApiService } from 'src/app/services/api.service';
-import { ActivatedRoute } from '@angular/router';
-import { Course } from 'src/app/models/course';
+import {ApiService} from 'src/app/services/api.service';
+import {ActivatedRoute} from '@angular/router';
+import {Course} from 'src/app/models/course';
 
 @Component({
   selector: 'app-course-detail',
@@ -15,15 +15,22 @@ export class CourseDetailComponent implements OnInit {
   @Input() assignment: any;
   uploadedFile: any;
   uploader: FileUploader = this.fileService.createUploader('localhost:4200/api/test');
+  course: Course;
+  id: string;
+  loggedIn: boolean;
 
   constructor(private fileService: UploadFileService,
-    private api: ApiService,
-    private activatedRoute: ActivatedRoute
-    ) {
+              private api: ApiService,
+              private activatedRoute: ActivatedRoute
+  ) {
   }
-  course: Course
-  id:string;
+
   ngOnInit(): void {
+    if (this.api.getToken()) {
+      this.loggedIn = true;
+    } else {
+      this.loggedIn = false;
+    }
     this.courses = {
       module: [
         {
@@ -49,15 +56,19 @@ export class CourseDetailComponent implements OnInit {
       title: '',
     }
     ];
-    this.id=this.activatedRoute.snapshot.paramMap.get("id");
-    this.api.getCourseById(this.id).subscribe(res =>{
-      this.course = res;
-      console.log(this.course);
+    this.id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.api.getCourseById(this.id).subscribe(res => {
+      this.saveCourse(res);
     });
+  }
 
+  saveCourse(response): void {
+    this.course = response;
+    console.table(this.course);
   }
 
   doUpload(idTitle: string): void {
     document.getElementById(idTitle).click();
   }
+
 }

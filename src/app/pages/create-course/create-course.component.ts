@@ -1,8 +1,10 @@
-import { ApiService } from './../../services/api.service';
+import {ApiService} from './../../services/api.service';
 import {Component, OnInit} from '@angular/core';
 import {AngularEditorConfig} from '@kolkov/angular-editor';
-import { ActivatedRoute } from '@angular/router';
-import { isNull } from '@angular/compiler/src/output/output_ast';
+import {ActivatedRoute} from '@angular/router';
+import {UploadFileService} from 'src/app/services/upload-file.service';
+import {FileUploader} from 'ng2-file-upload';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
   selector: 'app-create-course',
@@ -10,7 +12,8 @@ import { isNull } from '@angular/compiler/src/output/output_ast';
   styleUrls: ['./create-course.component.sass']
 })
 export class CreateCourseComponent implements OnInit {
-
+  public Editor = ClassicEditor;
+  panelOpenState = false;
   config: AngularEditorConfig = {
     editable: true,
     spellcheck: true,
@@ -22,59 +25,81 @@ export class CreateCourseComponent implements OnInit {
     defaultFontName: 'Arial',
     sanitize: true
   };
-  course:any = {
-    user_id: "",
-    category_id: "",
-    course_title: "",
+  course: any = {
+    user_id: '',
+    category_id: '',
+    course_title: '',
     max_enroll_student: 0,
     max_learning_day: 0,
-    information : ""
+    information: '',
+    rating: 5,
+    course_image: 'lalala'
+  };
+  categories: any;
+
+  uploader: FileUploader = this.fileService.createUploader('localhost:4200/api/image/userimage');
+
+  moduleContent = [{
+    title: '',
+    content: ''
+  }];
+  numbers: Array<number> = [1];
+  courseid = '';
+  information = '';
+
+  constructor(private route: ActivatedRoute, private api: ApiService, private fileService: UploadFileService) {
+    this.route.params.subscribe(a => this.getId(a));
+
   }
 
-  htmlContent = [];
-  numbers: Array<number> = [1];
-  courseid:string = ""
-  constructor(private route: ActivatedRoute, private api:ApiService) {  
-    this.route.params.subscribe(a => this.getId(a))
-    
-    
-  }
   ngOnInit(): void {
     this.course.user_id = sessionStorage.getItem('userId');
-    this.api.getAllCategory().subscribe(res => this.setCategory(res))
+    this.api.getAllCategory().subscribe(res => this.setCategory(res));
   }
-  setCategory(res:any){
-    console.log(res)
+
+  setCategory(res: any): any {
+    this.categories = res;
   }
-  getId(a:any){
-    if(a.id != null){
-      this.courseid = <string>a.id
-      console.log(a)
+
+  getId(a: any): any {
+    // console.log(a);
+    if (a.id != null) {
+      this.courseid = <string> a.id;
+      console.log(a);
+    } else {
+      this.courseid = '';
     }
-    else{
-      this.courseid = ""
-    }
   }
-  isEmpty(val:string){
+
+  isEmpty(val: string): any {
     return (val === null || val.length === 0 || val === undefined);
   }
-  checkId(){
-    return !this.isEmpty(this.courseid)
+
+  checkId(): any {
+    return !this.isEmpty(this.courseid);
   }
- 
 
   addNewModule(): void {
-    this.numbers.push(this.numbers[this.numbers.length-1] + 1);
-  }
-  saveModule(a:any){
-    console.log(a)
-    console.log(this.htmlContent[a])
-  }
-  removeModule(id: number): void {
-    this.numbers = this.numbers.filter(e => e !== id);
+    this.moduleContent.push({
+      title: '',
+      content: ''
+    });
   }
 
-  createCourse(){
-    console.log(this.course)
+  removeModule(id: number): void {
+    this.moduleContent.splice(id, 1);
+  }
+
+  getIndex(index: number): number {
+    return index + 1;
+  }
+
+  createCourse(): any {
+    console.log(this.course);
+    if (this.course.user_id === '' || this.course.category_id === '' || this.course.max_enroll_student === 0 || this.course.max_learning_day === 0 || this.course.information == '') {
+      alert('All Filed Must Be Filled!');
+    } else {
+      this.api.createCourse(this.course).subscribe(res => console.log(res));
+    }
   }
 }
