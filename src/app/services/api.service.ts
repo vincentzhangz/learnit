@@ -52,18 +52,17 @@ export class ApiService {
 
   public getCourseById(id: string): Observable<any> {
     return this.httpClient.get(
-      `${this.url}/course/${id}`,
-      this.getHttpOptions()
+      `${this.url}/course/${id}`
     );
   }
 
   public postForum(forum: Forum): Observable<any> {
-    return this.httpClient.post(`${this.url}/forum/`, forum,
+    return this.httpClient.post(`${this.url}/forum`, forum,
       this.getHttpOptions());
   }
 
   public getForums(): Observable<any> {
-    return this.httpClient.get(`${this.url}/forum/`, this.getHttpOptions());
+    return this.httpClient.get(`${this.url}/forum`, this.getHttpOptions());
   }
 
   public getTopCourse(): Observable<any> {

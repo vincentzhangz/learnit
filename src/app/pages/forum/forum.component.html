@@ -3,11 +3,10 @@
     <mat-card-title><a class="text-link" href="#">{{f.forum_title}}</a></mat-card-title>
     <mat-card-subtitle>{{f.user_forum.user_name}}</mat-card-subtitle>
   </mat-card>
-  <div class="add-new-forum">
+  <div class="add-new-forum" *ngIf="loggedIn">
     <button color="primary" mat-raised-button onclick="modal.style.display='flex'">Add new forum</button>
   </div>
 </div>
-
 
 <div id="modal">
   <div class="modal-container">
@@ -34,7 +33,6 @@
     <div class="button-modal">
       <button (click)="postForum()" color="primary" mat-raised-button>Post</button>
     </div>
-
   </div>
 
 </div>

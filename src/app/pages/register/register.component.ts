@@ -36,7 +36,7 @@ export class RegisterComponent implements OnInit {
 
   success(response): void {
     if (response === 'success') {
-      window.location.reload();
+      window.location.href = '/';
     } else {
       console.log(response);
       alert(response.error);

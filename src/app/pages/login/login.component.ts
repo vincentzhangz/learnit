@@ -48,6 +48,7 @@ export class LoginComponent implements OnInit {
     if (!response.error) {
       sessionStorage.setItem('userId', response.user_id);
       sessionStorage.setItem('token', response.token);
+      window.location.href = '/';
     } else {
       alert(response.error);
     }

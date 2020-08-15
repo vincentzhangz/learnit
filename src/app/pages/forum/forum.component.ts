@@ -15,16 +15,24 @@ export class ForumComponent implements OnInit {
   courses: Course[];
   selectedCourse: Course = null;
   forum: Forum = new Forum();
+  loggedIn: boolean;
 
   constructor(private api: ApiService,
               private router: Router) {
   }
 
   ngOnInit(): void {
+    if (this.api.getToken()) {
+      this.loggedIn = true;
+      console.log(this.api.getToken());
+    } else {
+      this.loggedIn = false;
+    }
+
     this.modal = document.getElementById('modal');
 
     this.api.getForums().subscribe(res => {
-      this.forums = res;
+      this.saveForum(res);
     });
 
     window.onclick = function(event) {
@@ -35,6 +43,11 @@ export class ForumComponent implements OnInit {
     this.api.getAllCourses().subscribe(res => {
       this.courses = res;
     });
+  }
+
+  saveForum(response): void {
+    this.forums = response;
+    console.log(this.forums);
   }
 
   postForum(): void {

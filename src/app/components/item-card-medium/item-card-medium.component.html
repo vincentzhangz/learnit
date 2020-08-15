@@ -1,4 +1,4 @@
-<mat-card *ngIf="course" class="item-card-medium">
+<mat-card *ngIf="course" class="item-card-medium" (click)="goToCourseDetail(course.course_id)">
   <mat-card-header>
     <div class="example-header-image" mat-card-avatar></div>
     <mat-card-title>{{course.course_title}}</mat-card-title>

@@ -17,6 +17,7 @@ export class CourseDetailComponent implements OnInit {
   uploader: FileUploader = this.fileService.createUploader('localhost:4200/api/test');
   course: Course;
   id: string;
+  loggedIn: boolean;
 
   constructor(private fileService: UploadFileService,
               private api: ApiService,
@@ -25,6 +26,11 @@ export class CourseDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (this.api.getToken()) {
+      this.loggedIn = true;
+    } else {
+      this.loggedIn = false;
+    }
     this.courses = {
       module: [
         {
@@ -52,13 +58,17 @@ export class CourseDetailComponent implements OnInit {
     ];
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
     this.api.getCourseById(this.id).subscribe(res => {
-      this.course = res;
-      console.log(this.course);
+      this.saveCourse(res);
     });
+  }
 
+  saveCourse(response): void {
+    this.course = response;
+    console.table(this.course);
   }
 
   doUpload(idTitle: string): void {
     document.getElementById(idTitle).click();
   }
+
 }

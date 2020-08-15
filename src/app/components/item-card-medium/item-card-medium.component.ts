@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-item-card-medium',
@@ -8,10 +9,14 @@ import {Component, Input, OnInit} from '@angular/core';
 export class ItemCardMediumComponent implements OnInit {
     @Input() course: any;
 
-    constructor() {
+    constructor(private router: Router) {
     }
 
     ngOnInit(): void {
+    }
+
+    goToCourseDetail(courseId): void {
+        this.router.navigateByUrl('course/' + courseId);
     }
 
 }
