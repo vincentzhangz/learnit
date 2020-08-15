@@ -22,11 +22,16 @@
     "@angular/platform-browser": "~10.0.9",
     "@angular/platform-browser-dynamic": "~10.0.9",
     "@angular/router": "~10.0.9",
+<<<<<<< HEAD
     "angular-progress-bar": "^1.0.11",
     "ng-starrating": "^1.0.20",
     "ngx-stars": "^1.4.3",
     "primeicons": "^4.0.0",
     "primeng": "^10.0.0-rc.3",
+=======
+    "ng-starrating": "^1.0.20",
+    "ngx-stars": "^1.4.3",
+>>>>>>> aacf97db34a98b5efd209db646aae73b26e46195
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"

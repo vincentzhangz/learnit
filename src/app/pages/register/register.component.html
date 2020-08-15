@@ -1,0 +1,37 @@
+<div class="container">
+    <form action=""  [formGroup]="registerForm">
+        <h1>Register Form</h1>
+        <mat-form-field class="form-input">
+            <input matInput placeholder="Name" formControlName="name">
+        </mat-form-field>
+        <mat-form-field class="form-input">
+            <input matInput placeholder="Email"  formControlName="email">
+        </mat-form-field>
+        <mat-form-field class="form-input">
+            <input matInput placeholder="Password" type="password"  formControlName="password">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-select placeholder="Gender" class="form-input" formControlName="gender">
+                <mat-option value="Male">
+                    Male
+                </mat-option>
+                <mat-option value="Female">
+                    Female
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field >
+            <mat-select placeholder="Role" class="form-input"  formControlName="role">
+                <mat-option value="Student">
+                    Student
+                </mat-option>
+                <mat-option value="Lecturer">
+                    Lecturer
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button mat-button (click)="test()">Login</button>
+    </form>
+
+
+</div>

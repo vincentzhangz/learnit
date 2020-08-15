@@ -12,9 +12,11 @@ import {MatButtonModule} from '@angular/material/button';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {ForumComponent} from './pages/forum/forum.component';
 import {HomeComponent} from './pages/home/home.component';
-import {ItemCardMediumComponent} from './components/item-card-medium/item-card-medium.component';
+import { LoginComponent } from './pages/login/login.component';
+import { ItemCardMediumComponent } from './components/item-card-medium/item-card-medium.component';
 import {MatCardModule} from '@angular/material/card';
 import { TestPageComponent } from './pages/test-page/test-page.component';
+
 import { UserHomepageProgressComponent } from './components/homepage/user-homepage-progress/user-homepage-progress.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {ProgressBarModule} from "angular-progress-bar";
@@ -25,11 +27,22 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { ForumDetailComponent } from './pages/forum/forum-detail/forum-detail.component';
 
 
+import { CourseDetailComponent } from './pages/course-detail/course-detail.component';
+import {RatingModule} from 'ng-starrating';
+import {NgxStarsModule} from 'ngx-stars';
+import {MatTabsModule} from '@angular/material/tabs';
+
+
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './pages/register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
     ForumComponent,
     HomeComponent,
+    LoginComponent,
     ItemCardMediumComponent,
     TestPageComponent,
     UserHomepageProgressComponent,
@@ -38,6 +51,8 @@ import { ForumDetailComponent } from './pages/forum/forum-detail/forum-detail.co
     ProfileComponent,
     ForumDetailComponent,
 
+    CourseDetailComponent,
+    RegisterComponent
 
   ],
   imports: [
@@ -52,8 +67,17 @@ import { ForumDetailComponent } from './pages/forum/forum-detail/forum-detail.co
     MatButtonModule,
     FlexLayoutModule,
     MatCardModule,
+
     MatExpansionModule,
-    ProgressBarModule
+    ProgressBarModule,
+
+    MatInputModule,
+    MatSelectModule,
+    RatingModule,
+    NgxStarsModule,
+    MatTabsModule,
+    ReactiveFormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
