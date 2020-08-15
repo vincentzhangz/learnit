@@ -43,14 +43,12 @@
                 </div>
             </mat-card>
             
-            <!-- <div *ngIf="thread.commentthread !=null">
-                <mat-card class="comment" *ngFor="let comment of thread.commentthread">
-                    <h2>Commented by [user]</h2>
-                    <mat-card-content>
-                        asdasdasd
-                    </mat-card-content>
-                </mat-card>
-            </div> -->
+            <mat-card class="comment" *ngFor="let comment of thread.comment">
+                <h2>Commented by {{comment.usercomment.user_name}}</h2>
+                <mat-card-content>
+                    {{comment.reply_content}}
+                </mat-card-content>
+            </mat-card>
             
          
            
@@ -80,14 +78,12 @@
                 </div>
             </mat-card>
 
-            <!-- <div *ngIf="thread.commentthread!=null">
-                <mat-card class="comment" *ngFor="let comment of thread.commentthread">
-                    <h2>Commented by [user]</h2>
-                    <mat-card-content>
-                        asdasdasd
-                    </mat-card-content>
-                </mat-card>
-            </div> -->
+            <mat-card class="comment" *ngFor="let comment of thread.comment">
+                <h2>Commented by {{comment.usercomment.user_name}}</h2>
+                <mat-card-content>
+                    {{comment.reply_content}}
+                </mat-card-content>
+            </mat-card>
             
         </div>
 
@@ -114,14 +110,13 @@
                     <button mat-raised-button (click)="comment(thread.thread_id)">Comment</button>
                 </div>
             </mat-card>
-            <!-- <div *ngIf="thread.commentthread!=null">
-                <mat-card class="comment" *ngFor="let comment of thread.commentthread">
-                    <h2>Commented by [user]</h2>
-                    <mat-card-content>
-                        asdasdasd
-                    </mat-card-content>
-                </mat-card>
-            </div> -->
+            <mat-card class="comment" *ngFor="let comment of thread.comment">
+                <h2>Commented by {{comment.usercomment.user_name}}</h2>
+                <mat-card-content>
+                    {{comment.reply_content}}
+                </mat-card-content>
+            </mat-card>
+            
             
          
         </div>

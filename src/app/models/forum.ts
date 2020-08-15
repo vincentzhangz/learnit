@@ -8,5 +8,5 @@ export class Forum {
   created_at: Date;
   updated_at: Date;
   user_id = '';
-  user_forum: User;
+  userforum: User;
 }
