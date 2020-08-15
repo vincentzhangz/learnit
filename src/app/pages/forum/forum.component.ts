@@ -15,12 +15,20 @@ export class ForumComponent implements OnInit {
   courses: Course[];
   selectedCourse: Course = null;
   forum: Forum = new Forum();
+  loggedIn: boolean;
 
   constructor(private api: ApiService,
               private router: Router) {
   }
 
   ngOnInit(): void {
+    if (this.api.getToken()) {
+      this.loggedIn = true;
+      console.log(this.api.getToken());
+    } else {
+      this.loggedIn = false;
+    }
+
     this.modal = document.getElementById('modal');
 
     this.api.getForums().subscribe(res => {

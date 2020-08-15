@@ -31,7 +31,7 @@
                   rows="10"></textarea>
       </mat-form-field>
     </div>
-    <div class="button-modal">
+    <div class="button-modal" *ngIf="loggedIn">
       <button (click)="postForum()" color="primary" mat-raised-button>Post</button>
     </div>
 
