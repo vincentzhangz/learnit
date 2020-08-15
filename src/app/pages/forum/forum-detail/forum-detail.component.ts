@@ -11,6 +11,7 @@ export class ForumDetailComponent implements OnInit {
     title: ['', Validators.required],
     content: ['', Validators.required],
   });
+
   constructor(private fb: FormBuilder) {
 
   }
@@ -19,8 +20,8 @@ export class ForumDetailComponent implements OnInit {
 
   }
 
-  toReply(){
-    document.getElementById("reply").scrollIntoView()
+  toReply() {
+    document.getElementById('reply').scrollIntoView();
   }
 
 }

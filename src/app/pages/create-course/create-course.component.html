@@ -1,26 +1,29 @@
 <div class="container">
   <div class="header">
     <mat-form-field>
-      <input matInput [(ngModel)]="course.course_title"  placeholder="Course Title">
+      <input [(ngModel)]="course.course_title" matInput placeholder="Course Title">
     </mat-form-field>
     <mat-form-field>
-      <input matInput [(ngModel)]="course.max_enroll_student"  placeholder="Max enroll students" type="number">
+      <input [(ngModel)]="course.max_enroll_student" matInput placeholder="Max enroll students" type="number">
     </mat-form-field>
     <mat-form-field>
-      <input matInput [(ngModel)]="course.max_learning_day"  placeholder="Training day" type="number">
+      <input [(ngModel)]="course.max_learning_day" matInput placeholder="Training day" type="number">
     </mat-form-field>
     <mat-form-field>
       <mat-select [(value)]="course.category_id">
         <div *ngFor="let item of categories">
           <mat-option value="{{item.category_id}}">
-
             {{item.category_title}}
           </mat-option>
-
         </div>
-
       </mat-select>
     </mat-form-field>
+    <div>
+      <label for="image-file">Thumbnail</label>
+      <br>
+      <input [uploader]="uploader" accept="image/*" id="image-file" mat-input ng2FileSelect type="file">
+      <!-- <button (click)="uploader.uploadAll()" color="primary" mat-button>Upload picture</button> -->
+    </div>
     <div class="header-information">
       <div>
         <angular-editor [(ngModel)]="course.information" [config]="config"></angular-editor>
@@ -31,7 +34,7 @@
     <button mat-raised-button (click)="createCourse()" color="accent">Save Changes</button>
   </div>
   <ng-template #elseBlock>
-    <button mat-raised-button color="accent" (click)="createCourse()">Create Course</button>
+    <button (click)="createCourse()" color="accent" mat-raised-button>Create Course</button>
   </ng-template>
   <div class="content">
     <mat-card *ngFor="let item of numbers" class="module-n">
@@ -40,7 +43,7 @@
           <h1>Module {{item}}</h1>
         </div>
         <div>
-          <button color="primary" mat-button (click)="saveModule(item)">Update</button>
+          <button (click)="saveModule(item)" color="primary" mat-button>Update</button>
           <button (click)="removeModule(item)" color="primary" mat-button>Delete</button>
         </div>
       </div>
@@ -55,7 +58,7 @@
       <button (click)="addNewModule()" color="primary" mat-raised-button>add new content</button>
     </div>
   </div>
-  <div  class="create-course-btn">
+  <div class="create-course-btn">
     <button color="primary" mat-raised-button>Create course</button>
   </div>
 

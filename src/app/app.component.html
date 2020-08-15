@@ -16,7 +16,7 @@
         <button mat-button routerLink="/register">Register</button>
       </div>
       <div *ngIf="userId">
-        <button mat-button (click)="logout()">Logout</button>
+        <button (click)="logout()" mat-button>Logout</button>
       </div>
     </div>
   </mat-toolbar-row>
