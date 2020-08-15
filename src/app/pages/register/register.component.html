@@ -2,7 +2,7 @@
   <form [formGroup]="registerForm" action="">
     <h1>Register Form</h1>
     <mat-form-field class="form-input">
-      <input formControlName="name" matInput placeholder="Name">
+      <input formControlName="username" matInput placeholder="Name">
     </mat-form-field>
     <mat-form-field class="form-input">
       <input formControlName="email" matInput placeholder="Email">
@@ -10,27 +10,30 @@
     <mat-form-field class="form-input">
       <input formControlName="password" matInput placeholder="Password" type="password">
     </mat-form-field>
+    <mat-form-field class="form-input">
+      <input formControlName="repassword" matInput placeholder="Repeat Password" type="password">
+    </mat-form-field>
     <mat-form-field>
       <mat-select class="form-input" formControlName="gender" placeholder="Gender">
-        <mat-option value="Male">
+        <mat-option value="male">
           Male
         </mat-option>
-        <mat-option value="Female">
+        <mat-option value="female">
           Female
         </mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field>
       <mat-select class="form-input" formControlName="role" placeholder="Role">
-        <mat-option value="Student">
+        <mat-option value="student">
           Student
         </mat-option>
-        <mat-option value="Lecturer">
+        <mat-option value="lecturer">
           Lecturer
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <button (click)="test()" mat-button>Login</button>
+    <button (click)="register()" mat-button>Register</button>
   </form>
 
 

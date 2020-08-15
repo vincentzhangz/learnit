@@ -14,7 +14,7 @@ export class UploadFileService {
 
   createUploader(url: string): FileUploader {
     URL = url;
-    let uploader: FileUploader = new FileUploader({url: URL});
+    const uploader: FileUploader = new FileUploader({url: URL});
     uploader.onCompleteItem = (file: any, response: any, status: any) => {
       console.log('uploadedFile', file, status, response); // for checking purpose
       alert('File upload success!!');

@@ -7,8 +7,17 @@
         <h1>LearnIt</h1>
       </a></span>
     <span class="menu-spacer"></span>
-    <div fxHide.lt-md fxShow="true">
-      <a mat-button routerLink="/forum">Forum</a>
+    <div class="navbar" fxHide.lt-md fxShow="true">
+      <div>
+        <a mat-button routerLink="/forum">Forum</a>
+      </div>
+      <div *ngIf="!userId">
+        <button mat-button routerLink="/login">Login</button>
+        <button mat-button routerLink="/register">Register</button>
+      </div>
+      <div *ngIf="userId">
+        <button mat-button (click)="logout()">Logout</button>
+      </div>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
@@ -18,6 +27,13 @@
     <mat-nav-list>
       <a (click)="sidenav.toggle()" mat-list-item routerLink="/">Home</a>
       <a (click)="sidenav.toggle()" mat-list-item routerLink="/forum">Forum</a>
+      <div *ngIf="!userId">
+        <a (click)="sidenav.toggle()" mat-list-item routerLink="/login">Login</a>
+        <a (click)="sidenav.toggle()" mat-list-item routerLink="/register">Register</a>
+      </div>
+      <div *ngIf="userId">
+        <a (click)="logout()" mat-list-item>Logout</a>
+      </div>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content fxFlexFill>

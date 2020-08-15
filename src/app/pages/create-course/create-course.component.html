@@ -10,10 +10,6 @@
       <input matInput placeholder="Training day" type="number">
     </mat-form-field>
     <div class="header-information">
-      <!--      <mat-form-field>-->
-      <!--        <textarea color="primary" cols="30" id="" matInput name="" placeholder="Input course information here"-->
-      <!--                  rows="10"></textarea>-->
-      <!--      </mat-form-field>-->
       <div>
         <angular-editor [(ngModel)]="information" [config]="config"></angular-editor>
       </div>
@@ -33,11 +29,6 @@
       <mat-form-field>
         <input matInput placeholder="Module Title {{item}}">
       </mat-form-field>
-      <!--      <mat-form-field>-->
-      <!--        <textarea color="primary" cols="30" id="" matInput name=""-->
-      <!--                  placeholder="Content of the module (use html to decorate)"-->
-      <!--                  rows="5"></textarea>-->
-      <!--      </mat-form-field>-->
       <div>
         <angular-editor [(ngModel)]="htmlContent[item]" [config]="config"></angular-editor>
       </div>

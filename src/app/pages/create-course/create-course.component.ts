@@ -29,11 +29,11 @@ export class CreateCourseComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addNewModule = () => {
+  addNewModule(): void {
     this.numbers.push(this.numbers.length + 1);
-  };
+  }
 
-  removeModule = (id: number) => {
+  removeModule(id: number): void {
     this.numbers = this.numbers.filter(e => e !== id);
-  };
+  }
 }

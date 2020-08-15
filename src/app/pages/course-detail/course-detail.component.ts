@@ -46,8 +46,7 @@ export class CourseDetailComponent implements OnInit {
 
   }
 
-  doUpload(id_title: string) {
-    document.getElementById(id_title).click();
-
+  doUpload(idTitle: string): void {
+    document.getElementById(idTitle).click();
   }
 }
