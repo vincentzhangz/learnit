@@ -1,6 +1,6 @@
 <div class="container" fxLayout="row wrap">
   <div *ngFor="let c of category" fxFlex="25%" fxFlex.sm="33%" fxFlex.xs="50%">
-    <mat-card class="category-card">
+    <mat-card (click)="goToCourseByCategory(c.category_id)" class="category-card">
       <mat-card-header class="header" fxLayoutAlign="center center">
         <mat-card-title class="title">{{c.category_title}}</mat-card-title>
       </mat-card-header>

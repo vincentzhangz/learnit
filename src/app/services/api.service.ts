@@ -100,6 +100,9 @@ export class ApiService {
     // this.getHttpOptions());
   }
   
+  public getCoursesByCategoryId(categoryId:string):Observable<any>{
+    return this.httpClient.get(`${this.url}/course/category/${categoryId}`,this.getHttpOptions());
+  }
 
 
   public getHttpOptions(): any {

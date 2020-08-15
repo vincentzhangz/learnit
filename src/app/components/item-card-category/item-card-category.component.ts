@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-item-card-category',
@@ -8,7 +9,9 @@ import {Component, Input, OnInit} from '@angular/core';
 export class ItemCardCategoryComponent implements OnInit {
   @Input() category: any;
 
-  constructor() {
+  constructor(
+    private router:Router
+  ) {
   }
 
   ngOnInit(): void {
@@ -16,6 +19,9 @@ export class ItemCardCategoryComponent implements OnInit {
     //   title: 'Coding',
     //   image: '../../../assets/img/deluxe.jpg'
     // };
+  }
+  goToCourseByCategory(categoryId:string){
+    this.router.navigateByUrl("course/category/"+categoryId);
   }
 
 }
