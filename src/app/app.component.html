@@ -1,14 +1,14 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+    <button (click)="sidenav.toggle()" fxHide.gt-sm fxShow="true" mat-icon-button>
       <mat-icon>menu</mat-icon>
     </button>
-    <span> <a routerLink="/" mat-button>
+    <span> <a mat-button routerLink="/">
         <h1>LearnIt</h1>
       </a></span>
     <span class="menu-spacer"></span>
-    <div fxShow="true" fxHide.lt-md>
-      <a routerLink="/forum" mat-button>Forum</a>
+    <div fxHide.lt-md fxShow="true">
+      <a mat-button routerLink="/forum">Forum</a>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
@@ -16,8 +16,8 @@
 <mat-sidenav-container fxFlexFill>
   <mat-sidenav #sidenav>
     <mat-nav-list>
-      <a (click)="sidenav.toggle()" routerLink="/" mat-list-item>Home</a>
-      <a (click)="sidenav.toggle()" routerLink="/forum" mat-list-item>Forum</a>
+      <a (click)="sidenav.toggle()" mat-list-item routerLink="/">Home</a>
+      <a (click)="sidenav.toggle()" mat-list-item routerLink="/forum">Forum</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content fxFlexFill>

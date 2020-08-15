@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {User} from '../../models/user';
 import { FormBuilder, Validators } from '@angular/forms';
 import {UploadFileService} from '../../services/upload-file.service'; 

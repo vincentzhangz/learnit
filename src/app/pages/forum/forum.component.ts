@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-forum',
@@ -6,10 +6,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./forum.component.sass']
 })
 export class ForumComponent implements OnInit {
+  forum: any;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
+    this.forum = [
+      {
+        title: 'Title'
+      }, {
+        title: 'Title'
+      }, {
+        title: 'Title'
+      }
+    ];
   }
 
 }

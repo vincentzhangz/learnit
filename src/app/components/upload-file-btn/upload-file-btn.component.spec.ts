@@ -1,20 +1,20 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {HomeCardCoursesComponent} from './home-card-courses.component';
+import {UploadFileBtnComponent} from './upload-file-btn.component';
 
-describe('HomeCardCoursesComponent', () => {
-  let component: HomeCardCoursesComponent;
-  let fixture: ComponentFixture<HomeCardCoursesComponent>;
+describe('UploadFileBtnComponent', () => {
+  let component: UploadFileBtnComponent;
+  let fixture: ComponentFixture<UploadFileBtnComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [HomeCardCoursesComponent]
+      declarations: [UploadFileBtnComponent]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HomeCardCoursesComponent);
+    fixture = TestBed.createComponent(UploadFileBtnComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
