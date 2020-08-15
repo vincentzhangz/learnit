@@ -10,5 +10,5 @@ export class Thread {
     created_at:Date;
     updated_at: Date
     userthread: User
-    commentthread: any[]
+    comment: any[] = []
 }

@@ -39,25 +39,17 @@ export class ForumDetailComponent implements OnInit {
     
     this.api.getForumById(this.id).subscribe(res=>{
       this.forum = res
-      // console.log(res)
+
     })
     this.api.getThreadsByForumId(this.id).subscribe(res=>{
       this.threads = res;
       
       for(let i=0; i<this.threads.length; i++){
-        console.log(this.threads[i].commentthread);
+        this.threads[i].comment = []
+        this.threads[i].comment.push(res[i].commentthread);
+        console.log(this.threads[i].comment)
       }
-      // console.log(res[0].commentthread)
-      // for(let i=0; i<this.threads.length;i++){
-      //   this.api.getCommentByThreadId(this.threads[i].thread_id).subscribe(res2=>{
-      //     // console.log(res2);
-      //     // if(res2 == null){
-      //     //   this.threads[i].comments = []
-      //     // }else
-      //       this.threads[i].comments = res2
-      //   })
-
-      // }
+     
     })
     this.modal = document.getElementById("modal")
 

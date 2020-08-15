@@ -26,6 +26,31 @@ export class ApiService {
   public createCourse(course: any): Observable<any> {
     return this.httpClient.post(`${this.url}/course/`, course,this.getHttpOptions());
   }
+  public updateCourse(course: any): Observable<any> {
+    return this.httpClient.post(`${this.url}/course/update`, course,this.getHttpOptions());
+  }
+  public insertCourseMaterial(material: any): Observable<any> {
+    return this.httpClient.post(`${this.url}/course/material`, material,this.getHttpOptions());
+  }
+  public updateCourseMaterial(material: any): Observable<any> {
+    return this.httpClient.post(`${this.url}/course/material/update`, material,this.getHttpOptions());
+  }
+  public deleteCourseMaterial(materialid : string){
+    return this.httpClient.get(
+      `${this.url}/course/material/delete/${materialid}`, this.getHttpOptions()
+    );
+  }
+  public getUserCourses(userid : string){
+    return this.httpClient.get(
+      `${this.url}/enroll/${userid}`, this.getHttpOptions()
+    );
+  }
+
+  public getMaterialByCourseId(courseid : string){
+    return this.httpClient.get(
+      `${this.url}/course/detail/${courseid}`, this.getHttpOptions()
+    );
+  }
   public getEnrolledCourses(userid : string){
     return this.httpClient.get(
       `${this.url}/enroll/${userid}`, this.getHttpOptions()

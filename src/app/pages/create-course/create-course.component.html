@@ -1,5 +1,7 @@
 <div class="container">
+
   <div class="header">
+    <h1>Course Information</h1>
     <mat-form-field>
       <input [(ngModel)]="course.course_title" matInput placeholder="Course Title">
     </mat-form-field>
@@ -25,13 +27,13 @@
       <!-- <button (click)="uploader.uploadAll()" color="primary" mat-button>Upload picture</button> -->
     </div>
     <div class="header-information">
-      <ckeditor [editor]="Editor" [(ngModel)]="information"></ckeditor>
+      <ckeditor [editor]="Editor" [(ngModel)]="course.information"></ckeditor>
     </div>
   </div>
 
   <div style="margin: 10px 0px">
     <div *ngIf="this.checkId() == true; else elseBlock">
-      <button mat-raised-button (click)="createCourse()" color="accent">Save Changes</button>
+      <button mat-raised-button (click)="updateCourse()" color="accent">Save Changes</button>
     </div>
     <ng-template #elseBlock>
       <button (click)="createCourse()" color="accent" mat-raised-button>Create Course</button>
@@ -39,35 +41,45 @@
   </div>
 
   <div class="content">
-    <mat-accordion>
-      <mat-expansion-panel hideToggle *ngFor="let item of moduleContent;index as i" class="panel">
-        <mat-expansion-panel-header>
-          <mat-panel-title class="module-title" *ngIf="!moduleContent[i].title">
-            Module {{getIndex(i)}}
-          </mat-panel-title>
-          <mat-panel-title class="module-title" *ngIf="moduleContent[i].title">
-            {{moduleContent[i].title}}
-          </mat-panel-title>
-          <mat-panel-description class="summary" [innerHTML]="moduleContent[i].content">
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-
-        <div>
-          <button (click)="removeModule(i)" color="primary" mat-button>Delete</button>
-        </div>
-        <mat-form-field>
-          <input matInput placeholder="Module Title" [(ngModel)]="moduleContent[i].title">
-        </mat-form-field>
-        <div>
-          <ckeditor [editor]="Editor" [(ngModel)]="moduleContent[i].content"></ckeditor>
-        </div>
-
-      </mat-expansion-panel>
-    </mat-accordion>
-
+    <h1>Course Module</h1>
     <div style="margin: 10px 0px">
       <button (click)="addNewModule()" color="primary" mat-raised-button>Add new module</button>
     </div>
+    <div class="panel-container" *ngFor="let item of moduleContent;index as i">
+      <mat-accordion style="width: 100%">
+        <mat-expansion-panel hideToggle class="panel">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="module-text" *ngIf="!moduleContent[i].course_title">
+              Module {{getIndex(i)}}
+            </mat-panel-title>
+            <mat-panel-title class="module-text" *ngIf="moduleContent[i].course_title">
+              {{moduleContent[i].course_title}}
+            </mat-panel-title>
+            <mat-panel-description class="module-text" [innerHTML]="moduleContent[i].course_content">
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <mat-form-field>
+            <input matInput placeholder="Module Title" [(ngModel)]="moduleContent[i].course_title">
+          </mat-form-field>
+          <div>
+            <ckeditor [editor]="Editor" [(ngModel)]="moduleContent[i].course_content"></ckeditor>
+          </div>
+
+        </mat-expansion-panel>
+      </mat-accordion>
+      <button (click)="removeModule(i)" class="button" mat-button color="warn">
+        <mat-icon>remove_circle</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div style="margin: 10px 0x">
+    <div *ngIf="this.checkId() == true; else elseBlock">
+      <button mat-raised-button (click)="updateCourse()" color="accent">Save Changes</button>
+    </div>
+    <ng-template #elseBlock>
+      <button (click)="createCourse()" color="accent" mat-raised-button>Create Course</button>
+    </ng-template>
   </div>
 
 </div>

@@ -15,11 +15,11 @@ export class UserHomepageProgressComponent implements OnInit {
     
   }
 
-
   ngOnInit(): void {
     console.log('Here');
     console.log(this.user);
-    this.api.getProgress(this.user.user_id).subscribe(res => this.getCourses(res))
+    // this.user.user_id
+    this.api.getAllCourses().subscribe(res => this.getCourses(res))
     // this.api.getEnrolledCourses(this.user.user_id).subscribe(res => this.getCourses(res))
   }
 
