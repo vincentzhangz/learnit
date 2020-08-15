@@ -21,6 +21,8 @@ import {ProgressBarModule} from "angular-progress-bar";
 import { HomeCardCoursesComponent } from './components/homepage/home-card-courses/home-card-courses.component'
 import {CarouselModule} from 'primeng/carousel';
 import { ItemCardCategoryComponent } from './components/item-card-category/item-card-category.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { ForumDetailComponent } from './pages/forum/forum-detail/forum-detail.component';
 
 
 @NgModule({
@@ -33,6 +35,10 @@ import { ItemCardCategoryComponent } from './components/item-card-category/item-
     UserHomepageProgressComponent,
     HomeCardCoursesComponent,
     ItemCardCategoryComponent,
+    ProfileComponent,
+    ForumDetailComponent,
+
+
   ],
   imports: [
     CarouselModule,
