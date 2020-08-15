@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import { ApiService } from 'src/app/services/api.service';
-import {Course} from 'src/app/models/course'
-import { Router } from '@angular/router';
+import {ApiService} from 'src/app/services/api.service';
+import {Course} from 'src/app/models/course';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-course',
@@ -10,19 +10,21 @@ import { Router } from '@angular/router';
 })
 export class CourseComponent implements OnInit {
 
-  constructor(private api:ApiService,
-    private router: Router) {
-  }
-  courses:Course[]
-  ngOnInit(): void {
-    this.api.getAllCourses().subscribe(res =>{ 
-        this.courses = res
-        console.log(this.courses)
-    })
+  courses: Course[];
+
+  constructor(private api: ApiService,
+              private router: Router) {
   }
 
-  goToCourseDetail(id:string){
-    this.router.navigateByUrl("course/"+id)
+  ngOnInit(): void {
+    this.api.getAllCourses().subscribe(res => {
+      this.courses = res;
+      console.log(this.courses);
+    });
+  }
+
+  goToCourseDetail(id: string) {
+    this.router.navigateByUrl('course/' + id);
   }
 
 }

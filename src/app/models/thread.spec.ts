@@ -1,4 +1,4 @@
-import { Thread } from './thread';
+import {Thread} from './thread';
 
 describe('Thread', () => {
   it('should create an instance', () => {

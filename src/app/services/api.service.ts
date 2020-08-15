@@ -56,15 +56,21 @@ export class ApiService {
     );
   }
 
+  public postForum(forum: Forum): Observable<any> {
+    return this.httpClient.post(`${this.url}/forum/`, forum,
+      this.getHttpOptions());
+  }
+
+  public getForums(): Observable<any> {
+    return this.httpClient.get(`${this.url}/forum/`, this.getHttpOptions());
+  }
+
   public getTopCourse(): Observable<any> {
     return this.httpClient.get(
       `${this.url}/course/top/10`,
       this.getHttpOptions());
   }
 
-  public postForum(forum: Forum): void {
-    this.httpClient.post(`${this.url}/forum`, forum);
-  }
 
   public getHttpOptions(): any {
     const httpOptions = {

@@ -12,13 +12,6 @@ import {ApiService} from '../../services/api.service';
 })
 export class ProfileComponent implements OnInit {
   user: User;
-
-  constructor(private fb: FormBuilder,
-              private fileService: UploadFileService,
-              private apiService: ApiService
-  ) {
-  }
-
   updateForm = this.fb.group({
     name: ['', Validators.required],
     email: ['', Validators.required],
@@ -27,6 +20,12 @@ export class ProfileComponent implements OnInit {
     role: ['', Validators.required],
   });
   uploader: FileUploader = this.fileService.createUploader('localhost:4200/api/image/userimage');
+
+  constructor(private fb: FormBuilder,
+              private fileService: UploadFileService,
+              private apiService: ApiService
+  ) {
+  }
 
   ngOnInit(): void {
     this.apiService.getCurrentUser().subscribe(res => this.setData(res));
