@@ -53,5 +53,8 @@ export class ForumComponent implements OnInit {
     })
   }
   
+  goToDetail(id:String):void{
+    this.router.navigateByUrl(`forum/${id}`)
+  }
 
 }
