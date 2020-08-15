@@ -20,6 +20,9 @@ export class ApiService {
   public register(user: any): Observable<any> {
     return this.httpClient.post(`${this.url}/register`, user);
   }
+  public createCoutse(course: any): Observable<any>{
+    return this.httpClient.post(`${this.url}/course/`, user);
+  }
 
   public getCurrentUser(): Observable<any> {
     return this.httpClient.get(`${this.url}/user`, this.getHttpOptions());

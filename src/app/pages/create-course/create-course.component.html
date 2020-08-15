@@ -1,20 +1,35 @@
 <div class="container">
   <div class="header">
     <mat-form-field>
-      <input matInput placeholder="Course Title">
+      <input matInput [(ngModel)]="course.course_title"  placeholder="Course Title">
     </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="Max enroll students" type="number">
+      <input matInput [(ngModel)]="course.max_enroll_student"  placeholder="Max enroll students" type="number">
     </mat-form-field>
     <mat-form-field>
-      <input matInput placeholder="Training day" type="number">
+      <input matInput [(ngModel)]="course.max_learning_day"  placeholder="Training day" type="number">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select [(ngModel)]="course.category_id">
+        
+        <mat-option value="male">
+          Male
+        </mat-option>
+
+      </mat-select>
     </mat-form-field>
     <div class="header-information">
       <div>
-        <angular-editor [(ngModel)]="information" [config]="config"></angular-editor>
+        <angular-editor [(ngModel)]="course.information" [config]="config"></angular-editor>
       </div>
     </div>
   </div>
+  <div *ngIf="this.checkId() == true; else elseBlock">
+    <button mat-raised-button color="accent">Save Changes</button>
+  </div>
+  <ng-template #elseBlock>
+    <button mat-raised-button color="accent" (click)="createCourse()">Create Course</button>
+  </ng-template>
   <div class="content">
     <mat-card *ngFor="let item of numbers" class="module-n">
       <div class="content-title">
@@ -22,7 +37,7 @@
           <h1>Module {{item}}</h1>
         </div>
         <div>
-          <button color="primary" mat-button>Update</button>
+          <button color="primary" mat-button (click)="saveModule(item)">Update</button>
           <button (click)="removeModule(item)" color="primary" mat-button>Delete</button>
         </div>
       </div>

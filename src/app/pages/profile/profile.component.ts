@@ -33,6 +33,7 @@ export class ProfileComponent implements OnInit {
     this.updateForm.controls[`name`].setValue(this.user.user_name);
     this.updateForm.controls[`gender`].setValue(this.user.user_gender);
     this.updateForm.controls[`role`].setValue(this.user.user_role);
+    
     console.log(this.updateForm[`email`]);
   }
 

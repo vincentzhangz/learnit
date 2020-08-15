@@ -47,8 +47,10 @@ const routes: Routes = [
     path: 'createCourse',
     component: CreateCourseComponent,
   },
-
-
+  {
+    path: 'createCourse/:id',
+    component: CreateCourseComponent,
+  },
 ];
 
 @NgModule({
