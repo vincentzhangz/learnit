@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ItemCardCategoryComponent } from './item-card-category.component';
+import {ItemCardCategoryComponent} from './item-card-category.component';
 
 describe('ItemCardCategoryComponent', () => {
   let component: ItemCardCategoryComponent;
@@ -8,9 +8,9 @@ describe('ItemCardCategoryComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ItemCardCategoryComponent ]
+      declarations: [ItemCardCategoryComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

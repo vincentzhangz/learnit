@@ -1,6 +1,6 @@
-import { ProfileComponent } from './pages/profile/profile.component';
+import {ProfileComponent} from './pages/profile/profile.component';
 import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from './pages/home/home.component';
 import {ForumComponent} from './pages/forum/forum.component';
 import {LoginComponent} from './pages/login/login.component';

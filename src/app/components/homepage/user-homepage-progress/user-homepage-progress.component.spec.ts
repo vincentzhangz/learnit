@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { UserHomepageProgressComponent } from './user-homepage-progress.component';
+import {UserHomepageProgressComponent} from './user-homepage-progress.component';
 
 describe('UserHomepageProgressComponent', () => {
   let component: UserHomepageProgressComponent;
@@ -8,9 +8,9 @@ describe('UserHomepageProgressComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserHomepageProgressComponent ]
+      declarations: [UserHomepageProgressComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

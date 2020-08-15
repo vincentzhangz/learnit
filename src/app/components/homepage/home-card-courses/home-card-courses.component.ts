@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-home-card-courses',
@@ -6,36 +6,38 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-card-courses.component.sass']
 })
 export class HomeCardCoursesComponent implements OnInit {
-  courses:any;
-  constructor() { }
+  courses: any;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
     this.courses = [
-      "asdasd",
-      "asdasdasd",
-      "asdadsasdasdasd",
-      "asdasd",
-      "asdasdasd",
-      "asdadsasdasdasd",
-      "asdasd",
-      "asdasdasd",
-      "asdadsasdasdasd",
-      "asdasd",
-      "asdasdasd",
-      "asdadsasdasdasd",
-      "asdasd",
-      "asdasdasd",
-      "asdadsasdasdasd",
-      "asdasd",
-      "asdasdasd",
-      "asdadsasdasdasd",
-      "asdasd",
-      "asdasdasd",
-      "asdadsasdasdasd",
-      "asdasd",
-      "asdasdasd",
-      "asdadsasdasdasd",
-      
-    ]
+      'asdasd',
+      'asdasdasd',
+      'asdadsasdasdasd',
+      'asdasd',
+      'asdasdasd',
+      'asdadsasdasdasd',
+      'asdasd',
+      'asdasdasd',
+      'asdadsasdasdasd',
+      'asdasd',
+      'asdasdasd',
+      'asdadsasdasdasd',
+      'asdasd',
+      'asdasdasd',
+      'asdadsasdasdasd',
+      'asdasd',
+      'asdasdasd',
+      'asdadsasdasdasd',
+      'asdasd',
+      'asdasdasd',
+      'asdadsasdasdasd',
+      'asdasd',
+      'asdasdasd',
+      'asdadsasdasdasd',
+
+    ];
   }
 }

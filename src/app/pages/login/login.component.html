@@ -1,12 +1,12 @@
 <div class="container">
-    <form action=""  [formGroup]="loginForm">
-        <h1>Login Form</h1>
-        <mat-form-field class="form-input">
-            <input matInput placeholder="Email"  formControlName="email">
-        </mat-form-field>
-        <mat-form-field class="form-input">
-            <input matInput placeholder="Password" type="password"  formControlName="password">
-        </mat-form-field>
-        <button mat-button>Login</button>
-    </form>
+  <form [formGroup]="loginForm" action="">
+    <h1>Login Form</h1>
+    <mat-form-field class="form-input">
+      <input formControlName="email" matInput placeholder="Email">
+    </mat-form-field>
+    <mat-form-field class="form-input">
+      <input formControlName="password" matInput placeholder="Password" type="password">
+    </mat-form-field>
+    <button mat-button>Login</button>
+  </form>
 </div>
