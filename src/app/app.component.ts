@@ -1,5 +1,4 @@
 import {Component, OnChanges, SimpleChanges} from '@angular/core';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +8,10 @@ import {Router} from '@angular/router';
 export class AppComponent implements OnChanges {
   title = 'learnit';
   userId = sessionStorage.getItem('userId');
-  router: Router;
 
   logout(): void {
     sessionStorage.clear();
-    this.router.navigate(['']);
+    window.location.href = '/';
   }
 
   ngOnChanges(changes: SimpleChanges): void {

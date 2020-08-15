@@ -32,7 +32,7 @@ export class ForumComponent implements OnInit {
     this.modal = document.getElementById('modal');
 
     this.api.getForums().subscribe(res => {
-      this.forums = res;
+      this.saveForum(res);
     });
 
     window.onclick = function(event) {
@@ -43,6 +43,11 @@ export class ForumComponent implements OnInit {
     this.api.getAllCourses().subscribe(res => {
       this.courses = res;
     });
+  }
+
+  saveForum(response): void {
+    this.forums = response;
+    console.log(this.forums);
   }
 
   postForum(): void {

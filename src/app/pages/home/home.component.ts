@@ -40,6 +40,5 @@ export class HomeComponent implements OnInit {
 
   saveCategory(response): any {
     this.category = response;
-    console.log(this.category);
   }
 }
