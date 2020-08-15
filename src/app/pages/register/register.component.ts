@@ -28,6 +28,5 @@ export class RegisterComponent implements OnInit {
     this.user = this.registerForm.value;
   }
 
- 
 
 }

@@ -30,11 +30,14 @@ import {NgxStarsModule} from 'ngx-stars';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RegisterComponent} from './pages/register/register.component';
 import {FileUploadModule} from 'ng2-file-upload';
 import {MatBadgeModule} from '@angular/material/badge';
-import { CreateCourseComponent } from './pages/create-course/create-course.component';
+import {CourseComponent} from './pages/course/course.component';
+import {CreateCourseComponent} from './pages/create-course/create-course.component';
+import {AngularEditorModule} from '@kolkov/angular-editor';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -51,6 +54,7 @@ import { CreateCourseComponent } from './pages/create-course/create-course.compo
     ForumDetailComponent,
     CourseDetailComponent,
     RegisterComponent,
+    CourseComponent,
     CreateCourseComponent
 
   ],
@@ -76,7 +80,10 @@ import { CreateCourseComponent } from './pages/create-course/create-course.compo
     ReactiveFormsModule,
     FileUploadModule,
     ReactiveFormsModule,
-    MatBadgeModule
+    MatBadgeModule,
+    AngularEditorModule,
+    FormsModule,
+    HttpClientModule
 
   ],
   providers: [],

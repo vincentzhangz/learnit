@@ -8,7 +8,7 @@ import {TestPageComponent} from './pages/test-page/test-page.component';
 import {CourseDetailComponent} from './pages/course-detail/course-detail.component';
 import {RegisterComponent} from './pages/register/register.component';
 import {ForumDetailComponent} from './pages/forum/forum-detail/forum-detail.component';
-import { CreateCourseComponent } from './pages/create-course/create-course.component';
+import {CreateCourseComponent} from './pages/create-course/create-course.component';
 
 const routes: Routes = [
   {

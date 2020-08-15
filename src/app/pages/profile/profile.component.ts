@@ -22,8 +22,7 @@ export class ProfileComponent implements OnInit {
     gender: ['', Validators.required],
     role: ['', Validators.required],
   });
-
-  uploader:FileUploader = this.fileService.createUploader("localhost:4200/api/image/userimage");
+  uploader: FileUploader = this.fileService.createUploader('localhost:4200/api/image/userimage');
 
   ngOnInit(): void {
     
@@ -42,7 +41,7 @@ export class ProfileComponent implements OnInit {
     console.log(this.updateForm['email'])
   }
 
-  test(){
+  test() {
 
   }
 

@@ -41,10 +41,10 @@
             </div>
             <div>
               <button color="primary" mat-button>Download Case</button>
-              <button color="primary" mat-button (click)="doUpload(a.title)">Choose File</button>
-              <button color="primary" mat-button (click)="uploader.uploadAll()">Upload</button>
-              <input id={{a.title}} hidden ng2FileSelect type="file" accept=".zip, application/pdf"
-               [uploader]="uploader" >
+              <button (click)="doUpload(a.title)" color="primary" mat-button>Choose File</button>
+              <button (click)="uploader.uploadAll()" color="primary" mat-button>Upload</button>
+              <input [uploader]="uploader" accept=".zip, application/pdf" hidden id={{a.title}} ng2FileSelect
+                     type="file">
             </div>
           </mat-card>
         </div>

@@ -28,9 +28,9 @@
             <br>
             <input ng2FileSelect type="file" accept="image/*" [uploader]="uploader">
 
-            <button mat-button (click)="uploader.uploadAll()">Upload picture</button>
-        </div>
-        <button (click)="test()" mat-button color="primary">Save</button>
-    </form>
+      <button (click)="uploader.uploadAll()" mat-button>Upload picture</button>
+    </div>
+    <button (click)="test()" color="primary" mat-button>Save</button>
+  </form>
 
 </div>

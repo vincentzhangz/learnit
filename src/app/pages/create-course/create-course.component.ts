@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AngularEditorConfig} from '@kolkov/angular-editor';
 
 @Component({
   selector: 'app-create-course',
@@ -7,19 +8,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateCourseComponent implements OnInit {
 
-  constructor() { }
-  numbers:Array<number> = [1]
+  config: AngularEditorConfig = {
+    editable: true,
+    spellcheck: true,
+    height: '15rem',
+    minHeight: '5rem',
+    placeholder: 'Enter text here...',
+    translate: 'no',
+    defaultParagraphSeparator: 'p',
+    defaultFontName: 'Arial',
+    sanitize: true
+  };
+  information: string;
+  htmlContent = [];
+  numbers: Array<number> = [1];
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
-  addNewModule(){
-    this.numbers.push(this.numbers.length+1)
-  }
+  addNewModule = () => {
+    this.numbers.push(this.numbers.length + 1);
+  };
 
-  removeModule(id:number){
-    this.numbers = this.numbers.filter(function (e) {
-      return e!= id
-    })
-  }
+  removeModule = (id: number) => {
+    this.numbers = this.numbers.filter(e => e !== id);
+  };
 }

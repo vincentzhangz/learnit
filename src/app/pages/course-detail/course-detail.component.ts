@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FileUploader} from 'ng2-file-upload';
 import {UploadFileService} from '../../services/upload-file.service';
+
 @Component({
   selector: 'app-course-detail',
   templateUrl: './course-detail.component.html',
@@ -9,10 +10,11 @@ import {UploadFileService} from '../../services/upload-file.service';
 export class CourseDetailComponent implements OnInit {
   @Input() course: any;
   @Input() assignment: any;
-  uploadedFile:any;
+  uploadedFile: any;
+  uploader: FileUploader = this.fileService.createUploader('localhost:4200/api/test');
+
   constructor(private fileService: UploadFileService) {
   }
-  uploader:FileUploader = this.fileService.createUploader("localhost:4200/api/test");  
 
   ngOnInit(): void {
     this.course = {
@@ -35,18 +37,17 @@ export class CourseDetailComponent implements OnInit {
     }
     ];
     this.uploadedFile = [{
-      title: "",
-    },{
-      title: "",
+      title: '',
+    }, {
+      title: '',
     }
-    ]
+    ];
 
-    
 
   }
 
-  doUpload(id_title:string){
-    document.getElementById(id_title).click() ;
-    
+  doUpload(id_title: string) {
+    document.getElementById(id_title).click();
+
   }
 }
