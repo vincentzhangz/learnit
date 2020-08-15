@@ -15,6 +15,13 @@ import {HomeComponent} from './pages/home/home.component';
 import {ItemCardMediumComponent} from './components/item-card-medium/item-card-medium.component';
 import {MatCardModule} from '@angular/material/card';
 import { TestPageComponent } from './pages/test-page/test-page.component';
+import { UserHomepageProgressComponent } from './components/homepage/user-homepage-progress/user-homepage-progress.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {ProgressBarModule} from "angular-progress-bar";
+import { HomeCardCoursesComponent } from './components/homepage/home-card-courses/home-card-courses.component'
+import {CarouselModule} from 'primeng/carousel';
+import { ItemCardCategoryComponent } from './components/item-card-category/item-card-category.component';
+
 
 @NgModule({
   declarations: [
@@ -22,9 +29,13 @@ import { TestPageComponent } from './pages/test-page/test-page.component';
     ForumComponent,
     HomeComponent,
     ItemCardMediumComponent,
-    TestPageComponent
+    TestPageComponent,
+    UserHomepageProgressComponent,
+    HomeCardCoursesComponent,
+    ItemCardCategoryComponent,
   ],
   imports: [
+    CarouselModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -34,7 +45,9 @@ import { TestPageComponent } from './pages/test-page/test-page.component';
     MatListModule,
     MatButtonModule,
     FlexLayoutModule,
-    MatCardModule
+    MatCardModule,
+    MatExpansionModule,
+    ProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -15,6 +15,10 @@ const routes: Routes = [
   {
     path: 'test',
     component: TestPageComponent
+  },
+  {
+    path: 'home',
+    component: HomeComponent
   }
 ];
 
