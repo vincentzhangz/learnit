@@ -10,7 +10,7 @@
       {{forum.forum_content}}
     </div>
     <mat-divider></mat-divider>
-    <div class="reply-button">
+    <div class="reply-button" *ngIf="loggedIn">
       <a mat-raised-button color="primary" (click)="toReply()"> Reply</a>
     </div>
     <!--    <button color="basic" mat-stroked-button>Comment</button>-->
@@ -29,7 +29,7 @@
         <div class="content" [innerHTML]="thread.reply_content">
         </div>
         <mat-divider></mat-divider>
-        <div class="comment-button">
+        <div class="comment-button" *ngIf="loggedIn">
           <div class="right-wrong">
             <button (click)="correct(thread)" mat-mini-fab color="primary" style="background-color: #7aebb6">
               <mat-icon>check</mat-icon>
@@ -38,7 +38,7 @@
               <mat-icon>close</mat-icon>
             </button>
           </div>
-          <button mat-raised-button (click)="comment(thread.thread_id)">Comment</button>
+          <button mat-raised-button (click)="comment(thread.thread_id)" *ngIf="loggedIn">Comment</button>
         </div>
       </mat-card>
 
@@ -63,7 +63,7 @@
         <div class="content" [innerHTML]="thread.reply_content">
         </div>
         <mat-divider></mat-divider>
-        <div class="comment-button">
+        <div class="comment-button" *ngIf="loggedIn">
           <div class="right-wrong">
             <button (click)="correct(thread)" mat-mini-fab color="primary" style="background-color: #7aebb6">
               <mat-icon>check</mat-icon>
@@ -72,7 +72,7 @@
               <mat-icon>close</mat-icon>
             </button>
           </div>
-          <button mat-raised-button (click)="comment(thread.thread_id)">Comment</button>
+          <button mat-raised-button (click)="comment(thread.thread_id)" *ngIf="loggedIn">Comment</button>
         </div>
       </mat-card>
 
@@ -97,7 +97,7 @@
         <div class="content" [innerHTML]="thread.reply_content">
         </div>
         <mat-divider></mat-divider>
-        <div class="comment-button">
+        <div class="comment-button" *ngIf="loggedIn">
           <div class="right-wrong">
             <button (click)="correct(thread)" mat-mini-fab color="primary" style="background-color: #7aebb6">
               <mat-icon>check</mat-icon>
@@ -106,7 +106,7 @@
               <mat-icon>close</mat-icon>
             </button>
           </div>
-          <button mat-raised-button (click)="comment(thread.thread_id)">Comment</button>
+          <button mat-raised-button (click)="comment(thread.thread_id)" *ngIf="loggedIn">Comment</button>
         </div>
       </mat-card>
 
@@ -122,7 +122,7 @@
     </div>
   </div>
 
-  <mat-card id="reply" class="box">
+  <mat-card id="reply" class="box" *ngIf="loggedIn">
     <mat-card-title>Reply</mat-card-title>
     <input class="form-control" [(ngModel)]="replyTitle" matInput placeholder="Title">
     <ckeditor [editor]="Editor" [(ngModel)]="replyContent"></ckeditor>

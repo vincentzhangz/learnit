@@ -22,6 +22,7 @@ export class ForumDetailComponent implements OnInit {
   modal: any;
   replyTitle = '';
   replyContent = '';
+  loggedIn: boolean;
 
   constructor(private fb: FormBuilder,
               private api: ApiService,
@@ -33,6 +34,11 @@ export class ForumDetailComponent implements OnInit {
   comments: Comment[] = [];
 
   ngOnInit(): void {
+    if (this.api.getToken()) {
+      this.loggedIn = true;
+    } else {
+      this.loggedIn = false;
+    }
     this.myComment = new Comment();
     this.myComment.user_id = sessionStorage.getItem('userId');
     this.myComment.reply_content = '';
