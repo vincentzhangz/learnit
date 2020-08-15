@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { UploadFileService } from 'src/app/services/upload-file.service';
-import {FileUploader} from "ng2-file-upload";
+import {FormBuilder, Validators} from '@angular/forms';
+import {UploadFileService} from 'src/app/services/upload-file.service';
+import {FileUploader} from 'ng2-file-upload';
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -9,10 +10,6 @@ import {FileUploader} from "ng2-file-upload";
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(private fb: FormBuilder,
-      private fileService: UploadFileService
-    ) {
-  }
   updateForm = this.fb.group({
     name: ['', Validators.required],
     email: ['', Validators.required],
@@ -20,13 +17,17 @@ export class ProfileComponent implements OnInit {
     gender: ['', Validators.required],
     role: ['', Validators.required],
   });
+  uploader: FileUploader = this.fileService.createUploader('localhost:4200/api/image/userimage');
 
-  uploader:FileUploader = this.fileService.createUploader("localhost:4200/api/image/userimage");
+  constructor(private fb: FormBuilder,
+              private fileService: UploadFileService
+  ) {
+  }
 
   ngOnInit(): void {
   }
 
-  test(){
+  test() {
 
   }
 
