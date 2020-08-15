@@ -1,3 +1,26 @@
 <div class="container">
-    
+    <mat-card class="course" *ngFor="let course of courses">
+        <div class="course-image">
+            <img src="../../../assets/test_image.jpg" alt="">
+        </div>
+        <div class="course-content">
+            <div class="course-title">
+                {{course.course_title}}
+            </div>
+            <div class="course-information">
+                {{course.information}}
+            </div>
+        </div>
+        <div class="course-button">
+            
+            <button (click)="goToCourseDetail(course.course_id)"  mat-raised-button color="primary">Go to the course page</button>
+        </div>
+    </mat-card>
+
+    <div class="paginator">
+        <!-- <div *ngFor="let item of [1,2,3,4,5]"> -->
+            <!-- <button mat-raised-button color="primary">{{item}}</button> -->
+        <!-- </div> -->
+    </div>
+
 </div>
