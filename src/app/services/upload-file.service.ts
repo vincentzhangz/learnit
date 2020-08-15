@@ -16,6 +16,7 @@ export class UploadFileService {
     uploader.onCompleteItem = (file: any, response: any, status: any) => {
       console.log('uploadedFile', file, status, response); // for checking purpose
       alert('File upload success!!');
+      // uploader.uploadAll()
     }
     return uploader
   }
