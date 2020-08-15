@@ -6,8 +6,7 @@ import {ForumComponent} from './pages/forum/forum.component';
 import {LoginComponent} from './pages/login/login.component';
 import {TestPageComponent} from './pages/test-page/test-page.component';
 import {CourseDetailComponent} from './pages/course-detail/course-detail.component';
-import {RegisterComponent} from './pages/register/register.component';
-
+import { RegisterComponent } from './pages/register/register.component';
 const routes: Routes = [
   {
     path: '',
@@ -38,6 +37,7 @@ const routes: Routes = [
     component: RegisterComponent,
   },
 
+  
 ];
 
 @NgModule({

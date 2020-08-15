@@ -37,6 +37,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {ReactiveFormsModule} from '@angular/forms';
 import {RegisterComponent} from './pages/register/register.component';
+import {FileUploadModule} from 'ng2-file-upload';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,8 @@ import {RegisterComponent} from './pages/register/register.component';
     RatingModule,
     NgxStarsModule,
     MatTabsModule,
+    ReactiveFormsModule,
+    FileUploadModule,
     ReactiveFormsModule
 
   ],
