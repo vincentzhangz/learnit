@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
-
+import {Forum } from "src/app/models/forum"
 @Injectable({
   providedIn: 'root'
 })
@@ -50,6 +50,7 @@ export class ApiService {
     );
   }
 
+  
 
   public getHttpOptions(): any {
     const httpOptions = {
