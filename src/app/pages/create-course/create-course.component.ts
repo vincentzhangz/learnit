@@ -30,7 +30,7 @@ export class CreateCourseComponent implements OnInit {
   }
 
   addNewModule(): void {
-    this.numbers.push(this.numbers.length + 1);
+    this.numbers.push(this.numbers[this.numbers.length-1] + 1);
   }
 
   removeModule(id: number): void {

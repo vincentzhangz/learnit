@@ -29,6 +29,20 @@ export class ApiService {
     return sessionStorage.getItem('token');
   }
 
+  public getAllCategory(): Observable<any>{
+    return this.httpClient.get(
+      `${this.url}/course/getallcategory`, 
+      this.getHttpOptions()
+    );
+  }
+
+  public getAllCourses():Observable<any>{
+    return this.httpClient.get(
+      `${this.url}/course/getcourse`, 
+      this.getHttpOptions()
+    );
+  }
+
   public getHttpOptions(): any {
     const httpOptions = {
       headers: new HttpHeaders({
