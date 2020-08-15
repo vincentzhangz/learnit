@@ -43,6 +43,14 @@ export class ApiService {
     );
   }
 
+  public getCourseById(id:string):Observable<any>{
+    return this.httpClient.get(
+      `${this.url}/course/${id}`, 
+      this.getHttpOptions()
+    );
+  }
+
+
   public getHttpOptions(): any {
     const httpOptions = {
       headers: new HttpHeaders({
