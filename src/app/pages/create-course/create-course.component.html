@@ -42,38 +42,40 @@
 
   <div class="content">
     <h1>Course Module</h1>
-    <mat-accordion>
-      <mat-expansion-panel hideToggle *ngFor="let item of moduleContent;index as i" class="panel">
-        <mat-expansion-panel-header>
-          <mat-panel-title class="module-text" *ngIf="!moduleContent[i].title">
-            Module {{getIndex(i)}}
-          </mat-panel-title>
-          <mat-panel-title class="module-text" *ngIf="moduleContent[i].title">
-            {{moduleContent[i].title}}
-          </mat-panel-title>
-          <mat-panel-description class="module-text" [innerHTML]="moduleContent[i].content">
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-
-        <div>
-          <button (click)="removeModule(i)" color="primary" mat-button>Delete</button>
-        </div>
-        <mat-form-field>
-          <input matInput placeholder="Module Title" [(ngModel)]="moduleContent[i].title">
-        </mat-form-field>
-        <div>
-          <ckeditor [editor]="Editor" [(ngModel)]="moduleContent[i].content"></ckeditor>
-        </div>
-
-      </mat-expansion-panel>
-    </mat-accordion>
-
     <div style="margin: 10px 0px">
       <button (click)="addNewModule()" color="primary" mat-raised-button>Add new module</button>
     </div>
+    <div class="panel-container" *ngFor="let item of moduleContent;index as i">
+      <mat-accordion style="width: 100%">
+        <mat-expansion-panel hideToggle class="panel">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="module-text" *ngIf="!moduleContent[i].title">
+              Module {{getIndex(i)}}
+            </mat-panel-title>
+            <mat-panel-title class="module-text" *ngIf="moduleContent[i].title">
+              {{moduleContent[i].title}}
+            </mat-panel-title>
+            <mat-panel-description class="module-text" [innerHTML]="moduleContent[i].content">
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <mat-form-field>
+            <input matInput placeholder="Module Title" [(ngModel)]="moduleContent[i].title">
+          </mat-form-field>
+          <div>
+            <ckeditor [editor]="Editor" [(ngModel)]="moduleContent[i].content"></ckeditor>
+          </div>
+
+        </mat-expansion-panel>
+      </mat-accordion>
+      <button (click)="removeModule(i)" class="button" mat-button color="warn">
+        <mat-icon>remove_circle</mat-icon>
+      </button>
+    </div>
+
   </div>
 
-  <div style="margin: 10px 0px">
+  <div style="margin: 10px 0x">
     <div *ngIf="this.checkId() == true; else elseBlock">
       <button mat-raised-button (click)="createCourse()" color="accent">Save Changes</button>
     </div>
