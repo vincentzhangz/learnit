@@ -1,5 +1,6 @@
 $container-padding: 10px
 $container-radius: 5px
+
 .container
   padding: 2% 4%
 
@@ -43,24 +44,10 @@ $container-radius: 5px
       padding: 0 1%
 
 
-.module-title
+.module-text
   width: 50%
   max-width: 50%
-  max-height: 30px
-  overflow: hidden
-  text-overflow: ellipsis
-  display: -webkit-box
-  -webkit-line-clamp: 1
-  -webkit-box-orient: vertical
-  text-align: left
-
-.create-course-btn
-  display: flex
-  flex-direction: row
-
-.summary
-  width: 50%
-  max-width: 50%
+  min-height: 30px
   max-height: 30px
   overflow: hidden
   text-overflow: ellipsis
@@ -71,3 +58,7 @@ $container-radius: 5px
 
 .panel
   margin: 10px 0px
+
+\:host ::ng-deep .ck-editor__editable_inline
+  min-height: 200px
+  height: fit-content

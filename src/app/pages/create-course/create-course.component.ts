@@ -13,7 +13,7 @@ import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 })
 export class CreateCourseComponent implements OnInit {
   public Editor = ClassicEditor;
-  panelOpenState = false;
+
   config: AngularEditorConfig = {
     editable: true,
     spellcheck: true,
@@ -39,17 +39,12 @@ export class CreateCourseComponent implements OnInit {
 
   uploader: FileUploader = this.fileService.createUploader('localhost:4200/api/image/userimage');
 
-  moduleContent = [{
-    title: '',
-    content: ''
-  }];
+  moduleContent = [];
   numbers: Array<number> = [1];
   courseid = '';
-  information = '';
 
   constructor(private route: ActivatedRoute, private api: ApiService, private fileService: UploadFileService) {
     this.route.params.subscribe(a => this.getId(a));
-
   }
 
   ngOnInit(): void {
@@ -65,7 +60,6 @@ export class CreateCourseComponent implements OnInit {
     // console.log(a);
     if (a.id != null) {
       this.courseid = <string> a.id;
-      console.log(a);
     } else {
       this.courseid = '';
     }
@@ -95,11 +89,14 @@ export class CreateCourseComponent implements OnInit {
   }
 
   createCourse(): any {
-    console.log(this.course);
     if (this.course.user_id === '' || this.course.category_id === '' || this.course.max_enroll_student === 0 || this.course.max_learning_day === 0 || this.course.information == '') {
       alert('All Filed Must Be Filled!');
     } else {
-      this.api.createCourse(this.course).subscribe(res => console.log(res));
+      this.api.createCourse(this.course).subscribe(res => this.saveCourse(res));
     }
+  }
+
+  saveCourse(response): any {
+    this.courseid = response;
   }
 }
