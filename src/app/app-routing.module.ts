@@ -6,7 +6,6 @@ import { LoginComponent } from './pages/login/login.component';
 import {TestPageComponent} from './pages/test-page/test-page.component';
 import {CourseDetailComponent} from './pages/course-detail/course-detail.component';
 import { RegisterComponent } from './pages/register/register.component';
-
 const routes: Routes = [
   {
     path: '',
@@ -32,6 +31,7 @@ const routes: Routes = [
     path: 'register',
     component:RegisterComponent,
   },
+
   
 ];
 
