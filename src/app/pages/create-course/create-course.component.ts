@@ -40,6 +40,7 @@ export class CreateCourseComponent implements OnInit {
   uploader: FileUploader = this.fileService.createUploader('localhost:4200/api/image/userimage');
 
   moduleContent = [{
+    title: '',
     content: ''
   }];
   numbers: Array<number> = [1];
@@ -80,6 +81,7 @@ export class CreateCourseComponent implements OnInit {
 
   addNewModule(): void {
     this.moduleContent.push({
+      title: '',
       content: ''
     });
   }
