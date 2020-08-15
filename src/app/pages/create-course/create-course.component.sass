@@ -43,19 +43,24 @@ $container-radius: 5px
       padding: 0 1%
 
 
-  .content-title
-    display: flex
-    flex-direction: row
-    justify-content: space-between
-    align-items: center
+.module-title
+  width: 50%
+  max-width: 50%
+  max-height: 30px
+  overflow: hidden
+  text-overflow: ellipsis
+  display: -webkit-box
+  -webkit-line-clamp: 1
+  -webkit-box-orient: vertical
+  text-align: left
 
 .create-course-btn
   display: flex
   flex-direction: row
 
 .summary
-  width: 90%
-  max-width: 90%
+  width: 50%
+  max-width: 50%
   max-height: 30px
   overflow: hidden
   text-overflow: ellipsis

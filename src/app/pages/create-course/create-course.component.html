@@ -42,22 +42,18 @@
     <mat-accordion>
       <mat-expansion-panel hideToggle *ngFor="let item of moduleContent;index as i" class="panel">
         <mat-expansion-panel-header>
-
-          <mat-panel-title *ngIf="!moduleContent[i].title">
+          <mat-panel-title class="module-title" *ngIf="!moduleContent[i].title">
             Module {{getIndex(i)}}
           </mat-panel-title>
-          <mat-panel-title *ngIf="moduleContent[i].title">
+          <mat-panel-title class="module-title" *ngIf="moduleContent[i].title">
             {{moduleContent[i].title}}
           </mat-panel-title>
-
           <mat-panel-description class="summary" [innerHTML]="moduleContent[i].content">
           </mat-panel-description>
         </mat-expansion-panel-header>
 
-        <div class="content-title">
-          <div>
-            <button (click)="removeModule(i)" color="primary" mat-button>Delete</button>
-          </div>
+        <div>
+          <button (click)="removeModule(i)" color="primary" mat-button>Delete</button>
         </div>
         <mat-form-field>
           <input matInput placeholder="Module Title" [(ngModel)]="moduleContent[i].title">
