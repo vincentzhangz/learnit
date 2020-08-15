@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {FileUploader} from "ng2-file-upload";
+import {Component, OnInit} from '@angular/core';
+import {FileUploader} from 'ng2-file-upload';
+
 @Component({
   selector: 'app-upload-file-btn',
   templateUrl: './upload-file-btn.component.html',
@@ -10,16 +11,18 @@ import {FileUploader} from "ng2-file-upload";
 // const URL = ; // To API Upload
 export class UploadFileBtnComponent implements OnInit {
 
-  
-  constructor() { }
-  uploader: FileUploader = new FileUploader({url: "http://localhost:3000/api/upload"});
-  
+
+  uploader: FileUploader = new FileUploader({url: 'http://localhost:3000/api/upload'});
+
+  constructor() {
+  }
+
   ngOnInit(): void {
     this.uploader.onCompleteItem = (file: any, response: any, status: any) => {
       console.log('FileUpload:uploaded:', file, status, response);
       alert('File uploaded successfully');
-    }
-    
+    };
+
   }
 
 }
