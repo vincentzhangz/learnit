@@ -124,6 +124,7 @@ export class ApiService {
   }
 
   public postComment(comment: Comment): Observable<any> {
+    console.log(comment);
     return this.httpClient.post(`${this.url}/comment`, comment,
       this.getHttpOptions());
   }
@@ -136,8 +137,6 @@ export class ApiService {
   public updateThread(thread: Thread): Observable<any> {
     return this.httpClient.post(`${this.url}/thread/update`, thread,
       this.getHttpOptions());
-    // return this.httpClient.post(`${this.url}/thread/update,
-    // this.getHttpOptions());
   }
 
   public getCoursesByCategoryId(categoryId: string): Observable<any> {
