@@ -39,6 +39,7 @@ import {CreateCourseComponent} from './pages/create-course/create-course.compone
 import {AngularEditorModule} from '@kolkov/angular-editor';
 import {HttpClientModule} from '@angular/common/http';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,6 +60,7 @@ import {HttpClientModule} from '@angular/common/http';
 
   ],
   imports: [
+
     CarouselModule,
     BrowserModule,
     AppRoutingModule,
