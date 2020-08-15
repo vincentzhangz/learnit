@@ -49,8 +49,13 @@ export class ApiService {
       this.getHttpOptions()
     );
   }
-  public postForum(forum:Forum):void{
-    this.httpClient.post(`${this.url}/forum`, forum);
+  public postForum(forum:Forum):Observable<any>{
+    return this.httpClient.post(`${this.url}/forum/`, forum,
+     this.getHttpOptions());
+  }
+
+  public getForums():Observable<any>{
+    return this.httpClient.get(`${this.url}/forum/`,this.getHttpOptions());
   }
   
 

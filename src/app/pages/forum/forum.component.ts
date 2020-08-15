@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { Course } from 'src/app/models/course';
 import { ApiService } from 'src/app/services/api.service';
 import { Forum } from 'src/app/models/forum';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-forum',
@@ -11,7 +12,8 @@ import { Forum } from 'src/app/models/forum';
 export class ForumComponent implements OnInit {
   forums: any;
 
-  constructor(private api:ApiService) {
+  constructor(private api:ApiService,
+    private router: Router) {
   }
   modal:any
   courses:Course[]
@@ -20,15 +22,14 @@ export class ForumComponent implements OnInit {
   
   ngOnInit(): void {
     this.modal = document.getElementById("modal")
-    this.forums = [
-      {
-        title: 'Title'
-      }, {
-        title: 'Title'
-      }, {
-        title: 'Title'
-      }
-    ];
+    
+    this.api.getForums().subscribe(res=>{
+      this.forums = res
+      // console.log(res)
+      // console.log(this.forums)
+      // console.log(res["user-forum"])
+    })
+
     window.onclick = function(event) {
       if (event.target == this.modal) {
         this.modal.style.display = "none";
@@ -44,7 +45,12 @@ export class ForumComponent implements OnInit {
       return
     }
     this.forum.course_id = this.selectedCourse.course_id
-    this.api.postForum(this.forum)
+    this.forum.user_id = sessionStorage.getItem("userId")
+    // console.log(this.forum)
+    this.api.postForum(this.forum).subscribe(res=>{
+      alert("success")
+      window.location.reload()
+    })
   }
   
 

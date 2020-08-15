@@ -1,7 +1,7 @@
 <div class="container">
   <mat-card *ngFor="let f of forums" class="forum-card">
-    <mat-card-title><a class="text-link" href="#">Question</a></mat-card-title>
-    <mat-card-subtitle>User</mat-card-subtitle>
+    <mat-card-title><a class="text-link" href="#">{{f.forum_title}}</a></mat-card-title>
+    <mat-card-subtitle>{{f.userforum.user_name}}</mat-card-subtitle>
   </mat-card>
   <div class="add-new-forum">
     <button mat-raised-button color="primary" onclick="modal.style.display='flex'">Add new forum</button>
