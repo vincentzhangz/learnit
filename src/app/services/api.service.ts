@@ -21,7 +21,7 @@ export class ApiService {
     return this.httpClient.post(`${this.url}/register`, user);
   }
   public createCourse(course: any): Observable<any>{
-    return this.httpClient.post(`${this.url}/course/`, course);
+    return this.httpClient.post(`${this.url}/course/`, course );
   }
 
   public getCurrentUser(): Observable<any> {

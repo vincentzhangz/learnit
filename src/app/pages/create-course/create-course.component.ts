@@ -30,6 +30,8 @@ export class CreateCourseComponent implements OnInit {
     max_learning_day: 0,
     information : ""
   }
+  categories:any
+  
 
   htmlContent = [];
   numbers: Array<number> = [1];
@@ -37,16 +39,17 @@ export class CreateCourseComponent implements OnInit {
   constructor(private route: ActivatedRoute, private api:ApiService) {  
     this.route.params.subscribe(a => this.getId(a))
     
-    
   }
   ngOnInit(): void {
     this.course.user_id = sessionStorage.getItem('userId');
     this.api.getAllCategory().subscribe(res => this.setCategory(res))
   }
   setCategory(res:any){
-    console.log(res)
+    this.categories = res;
+    console.log(this.categories)
   }
   getId(a:any){
+    console.log(a)
     if(a.id != null){
       this.courseid = <string>a.id
       console.log(a)
@@ -75,6 +78,12 @@ export class CreateCourseComponent implements OnInit {
   }
 
   createCourse(){
-    console.log(this.course)
+
+    if(this.course.user_id == "" || this.course.category_id == "" || this.course.max_enroll_student == 0 || this.course.max_learning_day == 0 || this.course.information == ""){
+      alert("All Filed Must Be Filled!")
+    }
+    else{
+      this.api.createCourse(this.course).subscribe(res => this.getId(res));
+    }
   }
 }

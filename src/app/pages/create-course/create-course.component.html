@@ -10,11 +10,14 @@
       <input matInput [(ngModel)]="course.max_learning_day"  placeholder="Training day" type="number">
     </mat-form-field>
     <mat-form-field>
-      <mat-select [(ngModel)]="course.category_id">
-        
-        <mat-option value="male">
-          Male
-        </mat-option>
+      <mat-select [(value)]="course.category_id">
+        <div *ngFor="let item of categories">
+          <mat-option value="{{item.category_id}}">
+
+            {{item.category_title}}
+          </mat-option>
+
+        </div>
 
       </mat-select>
     </mat-form-field>
@@ -25,7 +28,7 @@
     </div>
   </div>
   <div *ngIf="this.checkId() == true; else elseBlock">
-    <button mat-raised-button color="accent">Save Changes</button>
+    <button mat-raised-button (click)="createCourse()" color="accent">Save Changes</button>
   </div>
   <ng-template #elseBlock>
     <button mat-raised-button color="accent" (click)="createCourse()">Create Course</button>
