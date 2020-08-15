@@ -17,23 +17,24 @@
       </mat-form-field>
     </div>
     <div>
-      <mat-form-field >
-        <mat-select placeholder="Select course"  name="item" [(ngModel)]="selectedCourse">
+      <mat-form-field>
+        <mat-select placeholder="Select course" name="item" [(ngModel)]="selectedCourse">
           <mat-option *ngFor="let course of courses" [value]="course">
-              {{course.course_id}} - {{course.course_title}}
+            {{course.course_id}} - {{course.course_title}}
           </mat-option>
         </mat-select>
       </mat-form-field>
     </div>
     <div>
       <mat-form-field>
-        <textarea [(ngModel)]="forum.forum_content" matInput placeholder="Forum Content" id="" cols="30" rows="10"></textarea>
+        <textarea [(ngModel)]="forum.forum_content" matInput placeholder="Forum Content" id="" cols="30"
+                  rows="10"></textarea>
       </mat-form-field>
     </div>
-    <div class="button-modal">
-      <button mat-raised-button color="primary" (click)="postForum()">Post</button> 
+    <div class="button-modal" *ngIf="loggedIn == true">
+      <button mat-raised-button color="primary" (click)="postForum()">Post</button>
     </div>
 
   </div>
-  
+
 </div>

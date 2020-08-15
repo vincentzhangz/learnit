@@ -20,7 +20,8 @@ export class ApiService {
   public register(user: any): Observable<any> {
     return this.httpClient.post(`${this.url}/register`, user);
   }
-  public createCourse(course: any): Observable<any>{
+
+  public createCourse(course: any): Observable<any> {
     return this.httpClient.post(`${this.url}/course/`, course);
   }
 

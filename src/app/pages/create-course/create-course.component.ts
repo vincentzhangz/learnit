@@ -1,8 +1,7 @@
-import { ApiService } from './../../services/api.service';
+import {ApiService} from './../../services/api.service';
 import {Component, OnInit} from '@angular/core';
 import {AngularEditorConfig} from '@kolkov/angular-editor';
-import { ActivatedRoute } from '@angular/router';
-import { isNull } from '@angular/compiler/src/output/output_ast';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-create-course',
@@ -22,59 +21,66 @@ export class CreateCourseComponent implements OnInit {
     defaultFontName: 'Arial',
     sanitize: true
   };
-  course:any = {
-    user_id: "",
-    category_id: "",
-    course_title: "",
+  course: any = {
+    user_id: '',
+    category_id: '',
+    course_title: '',
     max_enroll_student: 0,
     max_learning_day: 0,
-    information : ""
-  }
+    information: ''
+  };
 
   htmlContent = [];
   numbers: Array<number> = [1];
-  courseid:string = ""
-  constructor(private route: ActivatedRoute, private api:ApiService) {  
-    this.route.params.subscribe(a => this.getId(a))
-    
-    
+  courseid = '';
+
+  constructor(private route: ActivatedRoute, private api: ApiService) {
+    this.route.params.subscribe(a => this.getId(a));
+
+
   }
+
   ngOnInit(): void {
     this.course.user_id = sessionStorage.getItem('userId');
-    this.api.getAllCategory().subscribe(res => this.setCategory(res))
+    this.api.getAllCategory().subscribe(res => this.setCategory(res));
   }
-  setCategory(res:any){
-    console.log(res)
+
+  setCategory(res: any) {
+    console.log(res);
   }
-  getId(a:any){
-    if(a.id != null){
-      this.courseid = <string>a.id
-      console.log(a)
+
+  getId(a: any) {
+    if (a.id != null) {
+      this.courseid = <string> a.id;
+      console.log(a);
+    } else {
+      this.courseid = '';
     }
-    else{
-      this.courseid = ""
-    }
   }
-  isEmpty(val:string){
+
+  isEmpty(val: string) {
     return (val === null || val.length === 0 || val === undefined);
   }
-  checkId(){
-    return !this.isEmpty(this.courseid)
+
+  checkId() {
+    return !this.isEmpty(this.courseid);
   }
- 
+
 
   addNewModule(): void {
-    this.numbers.push(this.numbers[this.numbers.length-1] + 1);
+    this.numbers.push(this.numbers[this.numbers.length - 1] + 1);
   }
-  saveModule(a:any){
-    console.log(a)
-    console.log(this.htmlContent[a])
+
+  saveModule(a: any) {
+    console.log(a);
+    console.log(this.htmlContent[a]);
   }
+
   removeModule(id: number): void {
     this.numbers = this.numbers.filter(e => e !== id);
   }
 
-  createCourse(){
-    console.log(this.course)
+  createCourse() {
+    console.log(this.course);
   }
 }
