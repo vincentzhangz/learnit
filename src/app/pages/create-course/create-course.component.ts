@@ -55,8 +55,8 @@ export class CreateCourseComponent implements OnInit {
   }
   getId(a:any){
     console.log(a)
-    if(a.id != null){
-      this.courseid = <string>a.id
+    if(a.course_id != null){
+      this.courseid = <string>a.course_id
       console.log(a)
     }
     else{
@@ -65,13 +65,12 @@ export class CreateCourseComponent implements OnInit {
   }
 
   isEmpty(val: string) {
-    return (val === null || val.length === 0 || val === undefined);
+    return (val === null || val.length === 0 || val === undefined );
   }
 
   checkId() {
     return !this.isEmpty(this.courseid);
   }
-
 
   addNewModule(): void {
     this.numbers.push(this.numbers[this.numbers.length - 1] + 1);
@@ -85,14 +84,16 @@ export class CreateCourseComponent implements OnInit {
   removeModule(id: number): void {
     this.numbers = this.numbers.filter(e => e !== id);
   }
+  getCourseId(){
 
+  }
   createCourse(){
     console.log(this.course)
     if(this.course.user_id == "" || this.course.category_id == "" || this.course.max_enroll_student == 0 || this.course.max_learning_day == 0 || this.course.information == ""){
       alert("All Filed Must Be Filled!")
     }
     else{
-      this.api.createCourse(this.course).subscribe(res => console.log(res));
+      this.api.createCourse(this.course).subscribe(res => this.getId(res));
     }
   }
 }

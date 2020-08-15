@@ -30,7 +30,7 @@
       </div>
     </div>
   </div>
-  <div *ngIf="this.checkId() == true; else elseBlock">
+  <div *ngIf="this.checkId()==true; else elseBlock">
     <button mat-raised-button (click)="createCourse()" color="accent">Save Changes</button>
   </div>
   <ng-template #elseBlock>

@@ -49,7 +49,7 @@ const routes: Routes = [
     component: CreateCourseComponent,
   },
   {
-    path: 'createCourse/:id',
+    path: 'createCourse/:course_id',
     component: CreateCourseComponent,
   },
   {
