@@ -9,7 +9,6 @@ export class ApiService {
   host = 'http://127.0.0.1:8080';
   url = `${this.host}/api/v1`;
 
-
   constructor(private httpClient: HttpClient) {
 
   }
@@ -53,5 +52,6 @@ export class ApiService {
     };
     return httpOptions;
   }
+
 
 }

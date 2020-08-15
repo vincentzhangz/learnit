@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiService} from '../../services/api.service';
+import {User} from '../../models/user';
 
 @Component({
   selector: 'app-home',
@@ -8,13 +9,17 @@ import {ApiService} from '../../services/api.service';
 })
 export class HomeComponent implements OnInit {
   category: any = [];
-  user: any;
+  user: User;
 
   constructor(private  apiService: ApiService) {
-    this.getCurrentUser();
   }
 
+
   ngOnInit(): void {
+    if (sessionStorage.getItem('userId')) {
+      this.getCurrentUser();
+    }
+
     for (let i = 0; i < 10; i++) {
       this.category.push({
           title: `Category ${i}`,
@@ -30,6 +35,5 @@ export class HomeComponent implements OnInit {
 
   saveUser(response): any {
     this.user = response;
-    console.log(response);
   }
 }

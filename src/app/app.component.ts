@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnChanges, SimpleChanges} from '@angular/core';
 import {Router} from '@angular/router';
 
 @Component({
@@ -6,14 +6,17 @@ import {Router} from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.sass']
 })
-export class AppComponent {
+export class AppComponent implements OnChanges {
   title = 'learnit';
   userId = sessionStorage.getItem('userId');
   router: Router;
 
   logout(): void {
     sessionStorage.clear();
-    // this.router.navigate(['/']);
-    window.location.reload();
+    this.router.navigate(['']);
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('Change')
   }
 }
