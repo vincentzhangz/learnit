@@ -39,6 +39,7 @@ import {CreateCourseComponent} from './pages/create-course/create-course.compone
 import {AngularEditorModule} from '@kolkov/angular-editor';
 import {HttpClientModule} from '@angular/common/http';
 import {MatPaginatorModule} from '@angular/material/paginator';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,10 +57,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     RegisterComponent,
     CourseComponent,
     CreateCourseComponent
-
   ],
   imports: [
-
     CarouselModule,
     BrowserModule,
     AppRoutingModule,
@@ -86,7 +85,6 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     FormsModule,
     HttpClientModule,
     MatPaginatorModule,
-
   ],
   providers: [],
   bootstrap: [AppComponent]

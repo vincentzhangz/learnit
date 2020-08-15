@@ -22,34 +22,41 @@ export class ApiService {
   }
 
   public getCurrentUser(): Observable<any> {
-    return this.httpClient.get(`${this.url}/user`, this.getHttpOptions());
+    return this.httpClient.get(
+      `${this.url}/user`,
+      this.getHttpOptions());
   }
 
   public getToken(): string {
     return sessionStorage.getItem('token');
   }
 
-  public getAllCategory(): Observable<any>{
+  public getAllCategory(): Observable<any> {
     return this.httpClient.get(
-      `${this.url}/course/getallcategory`, 
+      `${this.url}/course/getallcategory`,
       this.getHttpOptions()
     );
   }
 
-  public getAllCourses():Observable<any>{
+  public getAllCourses(): Observable<any> {
     return this.httpClient.get(
-      `${this.url}/course/getcourse`, 
+      `${this.url}/course/getcourse`,
       this.getHttpOptions()
     );
   }
 
-  public getCourseById(id:string):Observable<any>{
+  public getCourseById(id: string): Observable<any> {
     return this.httpClient.get(
-      `${this.url}/course/${id}`, 
+      `${this.url}/course/${id}`,
       this.getHttpOptions()
     );
   }
 
+  public getTopCourse(): Observable<any> {
+    return this.httpClient.get(
+      `${this.url}/course/top/10`,
+      this.getHttpOptions());
+  }
 
   public getHttpOptions(): any {
     const httpOptions = {
