@@ -52,7 +52,7 @@ import {CreateCourseComponent} from './pages/create-course/create-course.compone
     ForumDetailComponent,
     CourseDetailComponent,
     RegisterComponent,
-    CourseComponent
+    CourseComponent,
     CreateCourseComponent
 
   ],
