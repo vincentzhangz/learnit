@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {ApiService} from '../../services/api.service';
 
 @Component({
   selector: 'app-home',
@@ -7,8 +8,10 @@ import {Component, OnInit} from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   category: any = [];
+  user: any;
 
-  constructor() {
+  constructor(private  apiService: ApiService) {
+    this.getCurrentUser();
   }
 
   ngOnInit(): void {
@@ -19,5 +22,14 @@ export class HomeComponent implements OnInit {
         }
       );
     }
+  }
+
+  public getCurrentUser(): void {
+    this.apiService.getCurrentUser().subscribe(res => this.saveUser(res));
+  }
+
+  saveUser(response): any {
+    this.user = response;
+    console.log(response);
   }
 }

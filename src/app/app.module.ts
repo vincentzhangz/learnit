@@ -38,7 +38,12 @@ import {CourseComponent} from './pages/course/course.component';
 import {CreateCourseComponent} from './pages/create-course/create-course.component';
 import {AngularEditorModule} from '@kolkov/angular-editor';
 import {HttpClientModule} from '@angular/common/http';
+<<<<<<< HEAD
 import {MatPaginatorModule} from '@angular/material/paginator';
+=======
+
+
+>>>>>>> 57b418eb966b67cc40e60c1162b4805b80d128bb
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,6 +64,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 
   ],
   imports: [
+
     CarouselModule,
     BrowserModule,
     AppRoutingModule,

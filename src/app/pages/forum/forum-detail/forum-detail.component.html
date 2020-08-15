@@ -1,0 +1,110 @@
+<div class="container">
+
+    <mat-card class="box">
+        <div class="header">
+            <h1>[Title]</h1>
+            <div>posted by [Poster]</div>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="content">
+            [Content]
+        </div>
+        <mat-divider></mat-divider>
+        <div class="reply-button">
+            <a mat-raised-button color="primary" (click)="toReply()"> Reply</a>
+        </div>
+
+    </mat-card>
+
+    <!-- reply -->
+    <div class="box">
+        <mat-card class="wrong">
+            <div class="header">
+                <h1>[Title]</h1>
+                <div>replied by [Poster]</div>
+            </div>
+            <mat-divider></mat-divider>
+            <div class="content">
+                [Content]
+            </div>
+            <mat-divider></mat-divider>
+            <div class="comment-button">
+                <div class="right-wrong">
+                    <button mat-mini-fab color="primary" style="background-color: #7aebb6">
+                        <mat-icon>check</mat-icon>
+                    </button>
+                    <button mat-mini-fab style="background-color:#fa3e6a;">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </div>
+                <button mat-stroked-button color="basic">Comment</button>
+            </div>
+        </mat-card>
+
+        <mat-card class="comment">
+            <h2>Commented by [user]</h2>
+            <mat-card-content>
+                asdasdasd
+            </mat-card-content>
+        </mat-card>
+        <mat-card class="comment">
+            <h2>Commented by [user]</h2>
+            <mat-card-content>
+                asdasdasd
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <div class="box">
+        <mat-card class="correct">
+            <div class="header">
+                <h1>[Title]</h1>
+                <div>replied by [Poster]</div>
+            </div>
+            <mat-divider></mat-divider>
+            <div class="content">
+                [Content]
+            </div>
+            <mat-divider></mat-divider>
+            <div class="comment-button">
+                <div class="right-wrong">
+                    <button mat-mini-fab color="primary" style="background-color: #7aebb6">
+                        <mat-icon>check</mat-icon>
+                    </button>
+                    <button mat-mini-fab style="background-color:#fa3e6a;">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </div>
+                <button mat-stroked-button color="basic">Comment</button>
+            </div>
+        </mat-card>
+
+        <mat-card class="comment">
+            <h2>Commented by [user]</h2>
+            <mat-card-content>
+                asdasdasd
+            </mat-card-content>
+        </mat-card>
+        <mat-card class="comment">
+            <h2>Commented by [user]</h2>
+            <mat-card-content>
+                asdasdasd
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <mat-card id="reply" class="box">
+        <mat-card-title>Reply</mat-card-title>
+        <form [formGroup]="replyForm" action="">
+            <mat-form-field class="form-input">
+                <input class="form-control" formControlName="title" matInput placeholder="Title">
+            </mat-form-field>
+            <mat-form-field class="form-input">
+                <textarea class="form-control" formControlName="content" matInput placeholder="Reply"></textarea>
+            </mat-form-field>
+            <button mat-button color="Primary">Reply</button>
+        </form>
+
+    </mat-card>
+
+</div>

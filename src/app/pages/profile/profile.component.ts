@@ -45,5 +45,4 @@ export class ProfileComponent implements OnInit {
   save(): void {
   }
 
-
 }
