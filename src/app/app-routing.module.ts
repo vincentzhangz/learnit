@@ -1,8 +1,9 @@
+import { ProfileComponent } from './pages/profile/profile.component';
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {HomeComponent} from './pages/home/home.component';
 import {ForumComponent} from './pages/forum/forum.component';
-import { LoginComponent } from './pages/login/login.component';
+import {LoginComponent} from './pages/login/login.component';
 import {TestPageComponent} from './pages/test-page/test-page.component';
 import {CourseDetailComponent} from './pages/course-detail/course-detail.component';
 import { RegisterComponent } from './pages/register/register.component';
@@ -21,15 +22,19 @@ const routes: Routes = [
   },
   {
     path: 'test',
-    component: TestPageComponent
+    component: TestPageComponent,
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
   },
   {
     path: 'course/:id',
-    component: CourseDetailComponent
+    component: CourseDetailComponent,
   },
   {
     path: 'register',
-    component:RegisterComponent,
+    component: RegisterComponent,
   },
 
   

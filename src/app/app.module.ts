@@ -16,12 +16,23 @@ import { LoginComponent } from './pages/login/login.component';
 import { ItemCardMediumComponent } from './components/item-card-medium/item-card-medium.component';
 import {MatCardModule} from '@angular/material/card';
 import { TestPageComponent } from './pages/test-page/test-page.component';
+
+import { UserHomepageProgressComponent } from './components/homepage/user-homepage-progress/user-homepage-progress.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {ProgressBarModule} from "angular-progress-bar";
+import { HomeCardCoursesComponent } from './components/homepage/home-card-courses/home-card-courses.component'
+import {CarouselModule} from 'primeng/carousel';
+import { ItemCardCategoryComponent } from './components/item-card-category/item-card-category.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { ForumDetailComponent } from './pages/forum/forum-detail/forum-detail.component';
+
+
 import { CourseDetailComponent } from './pages/course-detail/course-detail.component';
 import {RatingModule} from 'ng-starrating';
 import {NgxStarsModule} from 'ngx-stars';
 import {MatTabsModule} from '@angular/material/tabs';
 
-
+  
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
@@ -36,11 +47,18 @@ import { UploadFileBtnComponent } from './components/upload-file-btn/upload-file
     LoginComponent,
     ItemCardMediumComponent,
     TestPageComponent,
+    UserHomepageProgressComponent,
+    HomeCardCoursesComponent,
+    ItemCardCategoryComponent,
+    ProfileComponent,
+    ForumDetailComponent,
+
     CourseDetailComponent,
-    RegisterComponent,
-    UploadFileBtnComponent
+    RegisterComponent
+
   ],
   imports: [
+    CarouselModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -51,6 +69,10 @@ import { UploadFileBtnComponent } from './components/upload-file-btn/upload-file
     MatButtonModule,
     FlexLayoutModule,
     MatCardModule,
+
+    MatExpansionModule,
+    ProgressBarModule,
+
     MatInputModule,
     MatSelectModule,
     RatingModule,
@@ -58,6 +80,8 @@ import { UploadFileBtnComponent } from './components/upload-file-btn/upload-file
     MatTabsModule,
     ReactiveFormsModule,
     FileUploadModule,
+    ReactiveFormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

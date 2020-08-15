@@ -1,0 +1,8 @@
+<div class="card-container">
+    <p-carousel [value]="courses" styleClass="custom-carousel"  [numVisible]="4" [numScroll]="2" [circular]="true" [autoplayInterval]="4000">
+        <ng-template let-course pTemplate="item">
+            <app-item-card-medium [course]="course"></app-item-card-medium>
+        </ng-template>
+    </p-carousel>
+
+</div>

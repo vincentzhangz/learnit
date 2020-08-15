@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {StarRatingComponent} from 'ng-starrating';
 
 @Component({
   selector: 'app-course-detail',
@@ -8,18 +7,30 @@ import {StarRatingComponent} from 'ng-starrating';
 })
 export class CourseDetailComponent implements OnInit {
   @Input() course: any;
+  @Input() assignment: any;
 
   constructor() {
   }
 
   ngOnInit(): void {
-  }
+    this.course = {
+      module: [
+        {
+          id: 1,
+          title: 'Module 1'
+        },
+        {
+          id: 2,
+          title: 'Module 2'
+        }
+      ]
+    };
 
-  onRate($event: { oldValue: number, newValue: number, starRating: StarRatingComponent }) {
-    alert(`Old Value:${$event.oldValue},
-      New Value: ${$event.newValue},
-      Checked Color: ${$event.starRating.checkedcolor},
-      Unchecked Color: ${$event.starRating.uncheckedcolor}`);
+    this.assignment = [{
+      title: 'Asg 1'
+    }, {
+      title: 'Asg 2'
+    }
+    ];
   }
-
 }
