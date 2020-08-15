@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { UploadFileBtnComponent } from './upload-file-btn.component';
+import {UploadFileBtnComponent} from './upload-file-btn.component';
 
 describe('UploadFileBtnComponent', () => {
   let component: UploadFileBtnComponent;
@@ -8,9 +8,9 @@ describe('UploadFileBtnComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UploadFileBtnComponent ]
+      declarations: [UploadFileBtnComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

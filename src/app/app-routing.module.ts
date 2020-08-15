@@ -6,23 +6,33 @@ import {ForumComponent} from './pages/forum/forum.component';
 import {LoginComponent} from './pages/login/login.component';
 import {TestPageComponent} from './pages/test-page/test-page.component';
 import {CourseDetailComponent} from './pages/course-detail/course-detail.component';
-import { RegisterComponent } from './pages/register/register.component';
+import {RegisterComponent} from './pages/register/register.component';
+import {ForumDetailComponent} from './pages/forum/forum-detail/forum-detail.component';
+
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent
   },
   {
-    path: 'forum',
-    component: ForumComponent
+    path: 'test',
+    component: TestPageComponent,
   },
   {
     path: 'login',
     component: LoginComponent,
   },
   {
-    path: 'test',
-    component: TestPageComponent,
+    path: 'register',
+    component: RegisterComponent,
+  },
+  {
+    path: 'forum',
+    component: ForumComponent
+  },
+  {
+    path: 'forum/:id',
+    component: ForumDetailComponent
   },
   {
     path: 'profile',
@@ -32,12 +42,8 @@ const routes: Routes = [
     path: 'course/:id',
     component: CourseDetailComponent,
   },
-  {
-    path: 'register',
-    component: RegisterComponent,
-  },
 
-  
+
 ];
 
 @NgModule({
