@@ -3,7 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Forum} from 'src/app/models/forum';
 import {Thread} from 'src/app/models/thread';
-import { Comment } from '../models/comment';
+import {Comment} from '../models/comment';
 
 @Injectable({
   providedIn: 'root'
@@ -24,8 +24,9 @@ export class ApiService {
   }
 
   public createCourse(course: any): Observable<any> {
-    console.log(this.getHttpOptions())
-    return this.httpClient.post(`${this.url}/course/`, course,this.getHttpOptions());
+    console.log(this.getHttpOptions());
+    return this.httpClient.post(`${this.url}/course/`, course,
+      this.getHttpOptions());
   }
 
   public getCurrentUser(): Observable<any> {
@@ -57,13 +58,15 @@ export class ApiService {
       `${this.url}/course/${id}`
     );
   }
-  public postForum(forum:Forum):Observable<any>{
+
+  public postForum(forum: Forum): Observable<any> {
     return this.httpClient.post(`${this.url}/forum/`, forum,
-     this.getHttpOptions());
-     }
+      this.getHttpOptions());
+  }
 
   public getForums(): Observable<any> {
-    return this.httpClient.get(`${this.url}/forum`, this.getHttpOptions());
+    return this.httpClient.get(`${this.url}/forum`,
+      this.getHttpOptions());
   }
 
   public getTopCourse(): Observable<any> {
@@ -72,34 +75,37 @@ export class ApiService {
       this.getHttpOptions());
   }
 
-  public getForumById(id:string):Observable<any>{
-    return this.httpClient.get(`${this.url}/forum/${id}`,this.getHttpOptions())
+  public getForumById(id: string): Observable<any> {
+    return this.httpClient.get(`${this.url}/forum/${id}`,
+      this.getHttpOptions());
   }
 
-  public postThread(thread:Thread):Observable<any>{
+  public postThread(thread: Thread): Observable<any> {
     return this.httpClient.post(`${this.url}/thread/`, thread,
-     this.getHttpOptions());
+      this.getHttpOptions());
   }
 
-  public getThreadsByForumId(id:string):Observable<any>{
-    return this.httpClient.get(`${this.url}/thread/forum/${id}`,this.getHttpOptions())
-  }
-  
-  public postComment(comment:Comment):Observable<any>{
-    return this.httpClient.post(`${this.url}/comment/`, comment,
-    this.getHttpOptions());
-  }
-  public getCommentByThreadId(threadID:string):Observable<any>{
-    return this.httpClient.get(`${this.url}/comment/${threadID}`,this.getHttpOptions())
+  public getThreadsByForumId(id: string): Observable<any> {
+    return this.httpClient.get(`${this.url}/thread/forum/${id}`,
+      this.getHttpOptions());
   }
 
-  public updateThread(thread:Thread):Observable<any>{
-    return this.httpClient.post(`${this.url}/thread/update`,thread,
-    this.getHttpOptions());
-    // return this.httpClient.post(`${this.url}/thread/update, 
+  public postComment(comment: Comment): Observable<any> {
+    return this.httpClient.post(`${this.url}/comment`, comment,
+      this.getHttpOptions());
+  }
+
+  public getCommentByThreadId(threadID: string): Observable<any> {
+    return this.httpClient.get(`${this.url}/comment/${threadID}`,
+      this.getHttpOptions());
+  }
+
+  public updateThread(thread: Thread): Observable<any> {
+    return this.httpClient.post(`${this.url}/thread/update`, thread,
+      this.getHttpOptions());
+    // return this.httpClient.post(`${this.url}/thread/update,
     // this.getHttpOptions());
   }
-  
 
 
   public getHttpOptions(): any {
