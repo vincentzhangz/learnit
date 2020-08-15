@@ -34,6 +34,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {RegisterComponent} from './pages/register/register.component';
 import {FileUploadModule} from 'ng2-file-upload';
 import {MatBadgeModule} from '@angular/material/badge';
+import { CreateCourseComponent } from './pages/create-course/create-course.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import {MatBadgeModule} from '@angular/material/badge';
     ProfileComponent,
     ForumDetailComponent,
     CourseDetailComponent,
-    RegisterComponent
+    RegisterComponent,
+    CreateCourseComponent
 
   ],
   imports: [
