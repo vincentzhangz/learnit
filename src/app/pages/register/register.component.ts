@@ -29,15 +29,17 @@ export class RegisterComponent implements OnInit {
   }
 
   register(): void {
-    const headers = new Headers({
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${this.apiService.getToken()}`
-    });
     this.user = this.registerForm.value;
     this.apiService.register(this.user).subscribe(res => this.success(res));
   }
 
   success(response): void {
+    if (response === 'success') {
+      window.location.reload();
+    } else {
+      console.log(response);
+      alert(response.error);
+    }
   }
 
 
