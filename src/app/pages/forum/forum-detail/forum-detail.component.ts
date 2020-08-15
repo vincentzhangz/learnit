@@ -1,10 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, Validators} from '@angular/forms';
+import {FormBuilder} from '@angular/forms';
 import {Forum} from 'src/app/models/forum';
 import {ApiService} from 'src/app/services/api.service';
 import {ActivatedRoute} from '@angular/router';
 import {Thread} from 'src/app/models/thread';
 import {Comment} from 'src/app/models/comment';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
   selector: 'app-forum-detail',
@@ -12,16 +13,15 @@ import {Comment} from 'src/app/models/comment';
   styleUrls: ['./forum-detail.component.sass']
 })
 export class ForumDetailComponent implements OnInit {
-  replyForm = this.fb.group({
-    title: ['', Validators.required],
-    content: ['', Validators.required],
-  });
+  public Editor = ClassicEditor;
   forum: Forum;
   myComment: Comment;
   id: string;
   threads: Thread[];
   currentThreadIdToComment: string;
   modal: any;
+  replyTitle = '';
+  replyContent = '';
 
   constructor(private fb: FormBuilder,
               private api: ApiService,
@@ -35,6 +35,7 @@ export class ForumDetailComponent implements OnInit {
   ngOnInit(): void {
     this.myComment = new Comment();
     this.myComment.user_id = sessionStorage.getItem('userId');
+    this.myComment.reply_content = '';
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
 
     this.api.getForumById(this.id).subscribe(res => {
@@ -76,14 +77,13 @@ export class ForumDetailComponent implements OnInit {
   }
 
   reply(): void {
-    const replyResult = this.replyForm.value;
-    console.log(replyResult.title);
-    if (replyResult.title === '' || replyResult.content === '') {
+    const replyResult = this.replyContent;
+    if (this.replyTitle === '' || this.replyContent === '') {
       return;
     }
     const myNewThread: Thread = new Thread();
-    myNewThread.title = replyResult.title;
-    myNewThread.reply_content = replyResult.content;
+    myNewThread.title = this.replyTitle;
+    myNewThread.reply_content = this.replyContent;
     myNewThread.user_id = sessionStorage.getItem('userId');
     myNewThread.is_correct = 'netral';
     myNewThread.forum_id = this.forum.forum_id;
@@ -96,9 +96,9 @@ export class ForumDetailComponent implements OnInit {
   }
 
   postComment(): void {
-    console.log(this.myComment);
     this.api.postComment(this.myComment).subscribe(res => {
       alert('success');
+      window.location.reload();
     });
   }
 

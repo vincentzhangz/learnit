@@ -13,7 +13,7 @@
     <div class="reply-button">
       <a mat-raised-button color="primary" (click)="toReply()"> Reply</a>
     </div>
-    <button color="basic" mat-stroked-button>Comment</button>
+    <!--    <button color="basic" mat-stroked-button>Comment</button>-->
 
   </mat-card>
   <!-- reply -->
@@ -26,8 +26,7 @@
           <div>replied by {{thread.userthread.user_name}}</div>
         </div>
         <mat-divider></mat-divider>
-        <div class="content">
-          {{thread.reply_content}}
+        <div class="content" [innerHTML]="thread.reply_content">
         </div>
         <mat-divider></mat-divider>
         <div class="comment-button">
@@ -47,8 +46,7 @@
         <mat-card class="comment" *ngFor="let comment of thread.comment">
           <div *ngIf="comment.usercomment.user_name">
             <h2>Commented by {{comment.usercomment.user_name}}</h2>
-            <mat-card-content>
-              {{comment.reply_content}}
+            <mat-card-content [innerHTML]="comment.reply_content">
             </mat-card-content>
           </div>
         </mat-card>
@@ -62,8 +60,7 @@
           <div>replied by {{thread.userthread.user_name}}</div>
         </div>
         <mat-divider></mat-divider>
-        <div class="content">
-          {{thread.reply_content}}
+        <div class="content" [innerHTML]="thread.reply_content">
         </div>
         <mat-divider></mat-divider>
         <div class="comment-button">
@@ -83,13 +80,11 @@
         <mat-card class="comment" *ngFor="let comment of thread.comment">
           <div *ngIf="comment.usercomment.user_name">
             <h2>Commented by {{comment.usercomment.user_name}}</h2>
-            <mat-card-content>
-              {{comment.reply_content}}
+            <mat-card-content [innerHTML]="comment.reply_content">
             </mat-card-content>
           </div>
         </mat-card>
       </div>
-
     </div>
 
     <div class="box" *ngIf="thread.is_correct == 'netral'">
@@ -99,8 +94,7 @@
           <div>replied by {{thread.userthread.user_name}}</div>
         </div>
         <mat-divider></mat-divider>
-        <div class="content">
-          {{thread.reply_content}}
+        <div class="content" [innerHTML]="thread.reply_content">
         </div>
         <mat-divider></mat-divider>
         <div class="comment-button">
@@ -120,28 +114,19 @@
         <mat-card class="comment" *ngFor="let comment of thread.comment">
           <div *ngIf="comment.usercomment.user_name">
             <h2>Commented by {{comment.usercomment.user_name}}</h2>
-            <mat-card-content>
-              {{comment.reply_content}}
+            <mat-card-content [innerHTML]="comment.reply_content">
             </mat-card-content>
           </div>
         </mat-card>
       </div>
     </div>
-
   </div>
-
 
   <mat-card id="reply" class="box">
     <mat-card-title>Reply</mat-card-title>
-    <form [formGroup]="replyForm" action="">
-      <mat-form-field class="form-input">
-        <input class="form-control" formControlName="title" matInput placeholder="Title">
-      </mat-form-field>
-      <mat-form-field class="form-input">
-        <textarea class="form-control" formControlName="content" matInput placeholder="Reply"></textarea>
-      </mat-form-field>
-      <button mat-raised-button (click)="reply()" color="primary">Reply</button>
-    </form>
+    <input class="form-control" [(ngModel)]="replyTitle" matInput placeholder="Title">
+    <ckeditor [editor]="Editor" [(ngModel)]="replyContent"></ckeditor>
+    <button class="button" mat-raised-button (click)="reply()" color="primary">Reply</button>
   </mat-card>
 
 </div>
@@ -150,15 +135,13 @@
 <div id="modal">
   <div class="modal-container">
     <div>
-      <mat-form-field>
-        <textarea [(ngModel)]="myComment.reply_content" matInput placeholder="Comment Content" id="" cols="30"
-                  rows="10"></textarea>
-      </mat-form-field>
+      <h1>Comment</h1>
     </div>
-    <div class="button-modal">
+    <div>
+      <ckeditor [editor]="Editor" [(ngModel)]="myComment.reply_content"></ckeditor>
+    </div>
+    <div class="button">
       <button mat-raised-button color="primary" (click)="postComment()">Post</button>
     </div>
-
   </div>
-
 </div>
