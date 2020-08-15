@@ -12,9 +12,10 @@ export class ItemCardMediumComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.course);
     // this.course = {
     //   image: '../../../assets/img/lighting.jpg',
-    //   title: 'Test Title',
+    //   course_title: 'Test Title',
     //   description: 'Test Desc'
     // };
   }

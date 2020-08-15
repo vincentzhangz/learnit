@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {Forum} from 'src/app/models/forum';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,6 @@ export class ApiService {
   url = `${this.host}/api/v1`;
 
   constructor(private httpClient: HttpClient) {
-
   }
 
   public login(user: any): Observable<any> {
@@ -25,34 +25,45 @@ export class ApiService {
   }
 
   public getCurrentUser(): Observable<any> {
-    return this.httpClient.get(`${this.url}/user`, this.getHttpOptions());
+    return this.httpClient.get(
+      `${this.url}/user`,
+      this.getHttpOptions());
   }
 
   public getToken(): string {
     return sessionStorage.getItem('token');
   }
 
-  public getAllCategory(): Observable<any>{
+  public getAllCategory(): Observable<any> {
     return this.httpClient.get(
-      `${this.url}/course/getallcategory`, 
+      `${this.url}/course/category`,
       this.getHttpOptions()
     );
   }
 
-  public getAllCourses():Observable<any>{
+  public getAllCourses(): Observable<any> {
     return this.httpClient.get(
-      `${this.url}/course/getcourse`, 
+      `${this.url}/course`,
       this.getHttpOptions()
     );
   }
 
-  public getCourseById(id:string):Observable<any>{
+  public getCourseById(id: string): Observable<any> {
     return this.httpClient.get(
-      `${this.url}/course/${id}`, 
+      `${this.url}/course/${id}`,
       this.getHttpOptions()
     );
   }
 
+  public getTopCourse(): Observable<any> {
+    return this.httpClient.get(
+      `${this.url}/course/top/10`,
+      this.getHttpOptions());
+  }
+
+  public postForum(forum: Forum): void {
+    this.httpClient.post(`${this.url}/forum`, forum);
+  }
 
   public getHttpOptions(): any {
     const httpOptions = {
@@ -63,6 +74,5 @@ export class ApiService {
     };
     return httpOptions;
   }
-
 
 }
