@@ -25,4 +25,9 @@ export class ApiService {
   public getToken(): string {
     return sessionStorage.getItem('token');
   }
+
+  public getAllCategory(): Observable<any>{
+    return this.httpClient.get(`${this.url}/course/getallcategory`);
+  }
+
 }

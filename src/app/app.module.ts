@@ -38,7 +38,7 @@ import {CourseComponent} from './pages/course/course.component';
 import {CreateCourseComponent} from './pages/create-course/create-course.component';
 import {AngularEditorModule} from '@kolkov/angular-editor';
 import {HttpClientModule} from '@angular/common/http';
-
+import {MatPaginatorModule} from '@angular/material/paginator';
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,7 +83,8 @@ import {HttpClientModule} from '@angular/common/http';
     MatBadgeModule,
     AngularEditorModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatPaginatorModule,
 
   ],
   providers: [],

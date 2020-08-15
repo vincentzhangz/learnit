@@ -28,11 +28,11 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = {
-      email: 'david@learnit.com',
-      gender: 'Female',
-      name: 'David',
-      password: 'David',
-      role: 'student'
+      email: '',
+      gender: '',
+      name: '',
+      password: '',
+      role: ''
     };
     this.updateForm.controls[`email`].setValue(this.user.email);
     this.updateForm.controls[`name`].setValue(this.user.name);
