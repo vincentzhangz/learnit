@@ -36,6 +36,11 @@ export class CreateCourseComponent implements OnInit {
   courseid:string = ""
   constructor(private route: ActivatedRoute, private api:ApiService) {  
     this.route.params.subscribe(a => this.getId(a))
+    
+    this.api.getAllCategory().subscribe(a => this.setCategory(a))
+  }
+  setCategory(a:any){
+    console.log(a)
   }
   getId(a:any){
     if(a.id != null){
@@ -57,9 +62,7 @@ export class CreateCourseComponent implements OnInit {
   }
 
   addNewModule(): void {
-    this.numbers.push(this.numbers.length + 1);
-
-    console.log(this.numbers)
+    this.numbers.push(this.numbers[this.numbers.length-1] + 1);
   }
   saveModule(a:any){
     console.log(a)

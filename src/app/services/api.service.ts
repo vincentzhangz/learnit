@@ -20,8 +20,8 @@ export class ApiService {
   public register(user: any): Observable<any> {
     return this.httpClient.post(`${this.url}/register`, user);
   }
-  public createCoutse(course: any): Observable<any>{
-    return this.httpClient.post(`${this.url}/course/`, user);
+  public createCourse(course: any): Observable<any>{
+    return this.httpClient.post(`${this.url}/course/`, course);
   }
 
   public getCurrentUser(): Observable<any> {
@@ -31,6 +31,28 @@ export class ApiService {
   public getToken(): string {
     return sessionStorage.getItem('token');
   }
+
+  public getAllCategory(): Observable<any>{
+    return this.httpClient.get(
+      `${this.url}/course/getallcategory`, 
+      this.getHttpOptions()
+    );
+  }
+
+  public getAllCourses():Observable<any>{
+    return this.httpClient.get(
+      `${this.url}/course/getcourse`, 
+      this.getHttpOptions()
+    );
+  }
+
+  public getCourseById(id:string):Observable<any>{
+    return this.httpClient.get(
+      `${this.url}/course/${id}`, 
+      this.getHttpOptions()
+    );
+  }
+
 
   public getHttpOptions(): any {
     const httpOptions = {

@@ -17,6 +17,6 @@ export class AppComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('Change')
+    console.log('Change');
   }
 }

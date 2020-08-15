@@ -1,6 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FileUploader} from 'ng2-file-upload';
 import {UploadFileService} from '../../services/upload-file.service';
+import { ApiService } from 'src/app/services/api.service';
+import { ActivatedRoute } from '@angular/router';
+import { Course } from 'src/app/models/course';
 
 @Component({
   selector: 'app-course-detail',
@@ -8,16 +11,20 @@ import {UploadFileService} from '../../services/upload-file.service';
   styleUrls: ['./course-detail.component.sass']
 })
 export class CourseDetailComponent implements OnInit {
-  @Input() course: any;
+  @Input() courses: any;
   @Input() assignment: any;
   uploadedFile: any;
   uploader: FileUploader = this.fileService.createUploader('localhost:4200/api/test');
 
-  constructor(private fileService: UploadFileService) {
+  constructor(private fileService: UploadFileService,
+    private api: ApiService,
+    private activatedRoute: ActivatedRoute
+    ) {
   }
-
+  course: Course
+  id:string;
   ngOnInit(): void {
-    this.course = {
+    this.courses = {
       module: [
         {
           id: 1,
@@ -42,7 +49,11 @@ export class CourseDetailComponent implements OnInit {
       title: '',
     }
     ];
-
+    this.id=this.activatedRoute.snapshot.paramMap.get("id");
+    this.api.getCourseById(this.id).subscribe(res =>{
+      this.course = res;
+      console.log(this.course);
+    });
 
   }
 

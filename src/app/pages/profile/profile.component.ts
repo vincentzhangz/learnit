@@ -29,15 +29,17 @@ export class ProfileComponent implements OnInit {
   uploader: FileUploader = this.fileService.createUploader('localhost:4200/api/image/userimage');
 
   ngOnInit(): void {
-    this.updateForm.controls[`email`].setValue(this.user.user_email);
-    this.updateForm.controls[`name`].setValue(this.user.user_name);
-    this.updateForm.controls[`gender`].setValue(this.user.user_gender);
-    this.updateForm.controls[`role`].setValue(this.user.user_role);
-    
-    console.log(this.updateForm[`email`]);
+    this.apiService.getCurrentUser().subscribe(res => this.setData(res));
   }
 
   save(): void {
+  }
+
+  setData(response): void {
+    this.user = response;
+    this.updateForm.controls[`email`].setValue(this.user.user_email);
+    this.updateForm.controls[`name`].setValue(this.user.user_name);
+    this.updateForm.controls[`gender`].setValue(this.user.user_gender);
   }
 
 }
