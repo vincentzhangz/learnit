@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {Forum} from 'src/app/models/forum';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,6 @@ export class ApiService {
   url = `${this.host}/api/v1`;
 
   constructor(private httpClient: HttpClient) {
-
   }
 
   public login(user: any): Observable<any> {
@@ -33,14 +33,14 @@ export class ApiService {
 
   public getAllCategory(): Observable<any> {
     return this.httpClient.get(
-      `${this.url}/course/getallcategory`,
+      `${this.url}/course/category`,
       this.getHttpOptions()
     );
   }
 
   public getAllCourses(): Observable<any> {
     return this.httpClient.get(
-      `${this.url}/course/getcourse`,
+      `${this.url}/course`,
       this.getHttpOptions()
     );
   }
@@ -58,6 +58,10 @@ export class ApiService {
       this.getHttpOptions());
   }
 
+  public postForum(forum: Forum): void {
+    this.httpClient.post(`${this.url}/forum`, forum);
+  }
+
   public getHttpOptions(): any {
     const httpOptions = {
       headers: new HttpHeaders({
@@ -67,6 +71,5 @@ export class ApiService {
     };
     return httpOptions;
   }
-
 
 }
