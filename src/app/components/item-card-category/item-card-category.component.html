@@ -1,15 +1,12 @@
 <div class="container" fxLayout="row wrap">
-  <div *ngFor="let num of [1,2,3,4,5,6,7,8]" fxFlex="25%" fxFlex.sm="33%" fxFlex.xs="50%">
+  <div *ngFor="let c of category" fxFlex="25%" fxFlex.sm="33%" fxFlex.xs="50%">
     <mat-card class="category-card">
       <mat-card-header class="header" fxLayoutAlign="center center">
-        <!-- <div mat-card-avatar></div> -->
-        <mat-card-title class="title">{{category.title}}</mat-card-title>
+        <mat-card-title class="title">{{c.title}}</mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <img alt="{{category.title}}" mat-card-image src="{{category.image}}">
+        <img alt="{{c.title}}" mat-card-image src="{{c.image}}">
       </mat-card-content>
     </mat-card>
-
   </div>
-
 </div>

@@ -23,7 +23,6 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // bambang:any;
   test(): void {
     this.user = this.registerForm.value;
   }

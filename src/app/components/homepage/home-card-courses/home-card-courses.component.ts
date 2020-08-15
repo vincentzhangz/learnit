@@ -6,38 +6,18 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./home-card-courses.component.sass']
 })
 export class HomeCardCoursesComponent implements OnInit {
-  courses: any;
+  courses: any = [];
 
   constructor() {
   }
 
   ngOnInit(): void {
-    this.courses = [
-      'asdasd',
-      'asdasdasd',
-      'asdadsasdasdasd',
-      'asdasd',
-      'asdasdasd',
-      'asdadsasdasdasd',
-      'asdasd',
-      'asdasdasd',
-      'asdadsasdasdasd',
-      'asdasd',
-      'asdasdasd',
-      'asdadsasdasdasd',
-      'asdasd',
-      'asdasdasd',
-      'asdadsasdasdasd',
-      'asdasd',
-      'asdasdasd',
-      'asdadsasdasdasd',
-      'asdasd',
-      'asdasdasd',
-      'asdadsasdasdasd',
-      'asdasd',
-      'asdasdasd',
-      'asdadsasdasdasd',
-
-    ];
+    for (let i = 0; i < 10; i++) {
+      this.courses.push({
+        image: '../../../assets/img/lighting.jpg',
+        description: `Desc Course ${i}`,
+        title: `Course${i}`
+      });
+    }
   }
 }
