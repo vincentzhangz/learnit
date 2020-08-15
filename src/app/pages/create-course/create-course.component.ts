@@ -37,10 +37,14 @@ export class CreateCourseComponent implements OnInit {
   constructor(private route: ActivatedRoute, private api:ApiService) {  
     this.route.params.subscribe(a => this.getId(a))
     
-    this.api.getAllCategory().subscribe(a => this.setCategory(a))
+    
   }
-  setCategory(a:any){
-    console.log(a)
+  ngOnInit(): void {
+    this.course.user_id = sessionStorage.getItem('userId');
+    this.api.getAllCategory().subscribe(res => this.setCategory(res))
+  }
+  setCategory(res:any){
+    console.log(res)
   }
   getId(a:any){
     if(a.id != null){
@@ -57,9 +61,7 @@ export class CreateCourseComponent implements OnInit {
   checkId(){
     return !this.isEmpty(this.courseid)
   }
-  ngOnInit(): void {
-    this.course.user_id = sessionStorage.getItem('userId');
-  }
+ 
 
   addNewModule(): void {
     this.numbers.push(this.numbers[this.numbers.length-1] + 1);
