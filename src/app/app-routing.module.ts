@@ -49,6 +49,10 @@ const routes: Routes = [
     component: CreateCourseComponent,
   },
   {
+    path: 'createCourse/:id',
+    component: CreateCourseComponent,
+  },
+  {
     path: 'course',
     component: CourseComponent,
   },

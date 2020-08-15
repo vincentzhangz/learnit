@@ -1,13 +1,15 @@
 <div class="container">
 
 
-  <div class="separator">
-    <app-home-card-courses></app-home-card-courses>
+  <div class="separator" *ngIf="course">
+    <app-home-card-courses [course]="course"></app-home-card-courses>
   </div>
+
   <div class="separator" *ngIf="user">
     <app-user-homepage-progress [user]="user"></app-user-homepage-progress>
   </div>
-
-  <app-item-card-category [category]="category"></app-item-card-category>
+  <div *ngIf="category">
+    <app-item-card-category [category]="category"></app-item-card-category>
+  </div>
 
 </div>

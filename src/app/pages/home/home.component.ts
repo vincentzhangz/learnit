@@ -8,8 +8,9 @@ import {User} from '../../models/user';
   styleUrls: ['./home.component.sass']
 })
 export class HomeComponent implements OnInit {
-  category: any = [];
+  category: any;
   user: User;
+  course: any;
 
   constructor(private  apiService: ApiService) {
   }
@@ -20,13 +21,9 @@ export class HomeComponent implements OnInit {
       this.getCurrentUser();
     }
 
-    for (let i = 0; i < 10; i++) {
-      this.category.push({
-          title: `Category ${i}`,
-          image: '../../../assets/img/deluxe.jpg'
-        }
-      );
-    }
+    this.apiService.getTopCourse().subscribe(res => this.saveCourses(res));
+    this.apiService.getAllCategory().subscribe(res => this.saveCategory(res));
+
   }
 
   public getCurrentUser(): void {
@@ -35,5 +32,14 @@ export class HomeComponent implements OnInit {
 
   saveUser(response): any {
     this.user = response;
+  }
+
+  saveCourses(response): any {
+    this.course = response;
+  }
+
+  saveCategory(response): any {
+    this.category = response;
+    console.log(this.category);
   }
 }
