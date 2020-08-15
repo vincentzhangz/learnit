@@ -31,14 +31,14 @@ export class ApiService {
 
   public getAllCategory(): Observable<any>{
     return this.httpClient.get(
-      `${this.url}/course/getallcategory`, 
+      `${this.url}/course/category`, 
       this.getHttpOptions()
     );
   }
 
   public getAllCourses():Observable<any>{
     return this.httpClient.get(
-      `${this.url}/course/getcourse`, 
+      `${this.url}/course`, 
       this.getHttpOptions()
     );
   }
@@ -49,7 +49,9 @@ export class ApiService {
       this.getHttpOptions()
     );
   }
-
+  public postForum(forum:Forum):void{
+    this.httpClient.post(`${this.url}/forum`, forum);
+  }
   
 
   public getHttpOptions(): any {

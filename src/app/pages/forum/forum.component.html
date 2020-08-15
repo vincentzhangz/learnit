@@ -1,5 +1,5 @@
 <div class="container">
-  <mat-card *ngFor="let f of forum" class="forum-card">
+  <mat-card *ngFor="let f of forums" class="forum-card">
     <mat-card-title><a class="text-link" href="#">Question</a></mat-card-title>
     <mat-card-subtitle>User</mat-card-subtitle>
   </mat-card>
@@ -13,7 +13,7 @@
   <div class="modal-container">
     <div>
       <mat-form-field>
-        <input matInput placeholder="Forum Title">
+        <input matInput placeholder="Forum Title" [(ngModel)]="forum.forum_title">
       </mat-form-field>
     </div>
     <div>
@@ -27,11 +27,11 @@
     </div>
     <div>
       <mat-form-field>
-        <textarea matInput placeholder="Forum Content" id="" cols="30" rows="10"></textarea>
+        <textarea [(ngModel)]="forum.forum_content" matInput placeholder="Forum Content" id="" cols="30" rows="10"></textarea>
       </mat-form-field>
     </div>
     <div class="button-modal">
-      <button mat-raised-button color="primary">Post</button> 
+      <button mat-raised-button color="primary" (click)="postForum()">Post</button> 
     </div>
 
   </div>

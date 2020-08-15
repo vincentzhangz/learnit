@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { Course } from 'src/app/models/course';
 import { ApiService } from 'src/app/services/api.service';
+import { Forum } from 'src/app/models/forum';
 
 @Component({
   selector: 'app-forum',
@@ -8,16 +9,18 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./forum.component.sass']
 })
 export class ForumComponent implements OnInit {
-  forum: any;
+  forums: any;
 
   constructor(private api:ApiService) {
   }
   modal:any
   courses:Course[]
   selectedCourse:Course = null
+  forum: Forum = new Forum()
+  
   ngOnInit(): void {
     this.modal = document.getElementById("modal")
-    this.forum = [
+    this.forums = [
       {
         title: 'Title'
       }, {
@@ -35,7 +38,14 @@ export class ForumComponent implements OnInit {
       this.courses = res
     })
   }
-
+  postForum():void{
+    if(this.selectedCourse == null){
+      alert("Please select the course")
+      return
+    }
+    this.forum.course_id = this.selectedCourse.course_id
+    this.api.postForum(this.forum)
+  }
   
 
 }
