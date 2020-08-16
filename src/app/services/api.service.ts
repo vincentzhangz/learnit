@@ -9,7 +9,7 @@ import {Comment} from '../models/comment';
   providedIn: 'root'
 })
 export class ApiService {
-  host = 'https://gh2020api.vincentzhangz.com/';
+  host = 'https://gh2020api.vincentzhangz.com';
   url = `${this.host}/api/v1`;
 
   constructor(private httpClient: HttpClient) {
