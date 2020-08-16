@@ -33,7 +33,7 @@
 
   <div style="margin: 10px 0px">
     <div *ngIf="this.checkId() == true; else elseBlock">
-      <button mat-raised-button (click)="createCourse()" color="accent">Save Changes</button>
+      <button mat-raised-button (click)="updateCourse()" color="accent">Save Changes</button>
     </div>
     <ng-template #elseBlock>
       <button (click)="createCourse()" color="accent" mat-raised-button>Create Course</button>
@@ -49,21 +49,20 @@
       <mat-accordion style="width: 100%">
         <mat-expansion-panel hideToggle class="panel">
           <mat-expansion-panel-header>
-            <mat-panel-title class="module-text" *ngIf="!moduleContent[i].title">
+            <mat-panel-title class="module-text" *ngIf="!moduleContent[i].course_title">
               Module {{getIndex(i)}}
             </mat-panel-title>
-            <mat-panel-title class="module-text" *ngIf="moduleContent[i].title">
-              {{moduleContent[i].title}}
+            <mat-panel-title class="module-text" *ngIf="moduleContent[i].course_title">
+              {{moduleContent[i].course_title}}
             </mat-panel-title>
-            <mat-panel-description class="module-text" [innerHTML]="moduleContent[i].content">
+            <mat-panel-description class="module-text" [innerHTML]="moduleContent[i].course_content">
             </mat-panel-description>
           </mat-expansion-panel-header>
-
           <mat-form-field>
-            <input matInput placeholder="Module Title" [(ngModel)]="moduleContent[i].title">
+            <input matInput placeholder="Module Title" [(ngModel)]="moduleContent[i].course_title">
           </mat-form-field>
           <div>
-            <ckeditor [editor]="Editor" [(ngModel)]="moduleContent[i].content"></ckeditor>
+            <ckeditor [editor]="Editor" [(ngModel)]="moduleContent[i].course_content"></ckeditor>
           </div>
 
         </mat-expansion-panel>
@@ -72,12 +71,11 @@
         <mat-icon>remove_circle</mat-icon>
       </button>
     </div>
-
   </div>
 
   <div style="margin: 10px 0x">
     <div *ngIf="this.checkId() == true; else elseBlock">
-      <button mat-raised-button (click)="createCourse()" color="accent">Save Changes</button>
+      <button mat-raised-button (click)="updateCourse()" color="accent">Save Changes</button>
     </div>
     <ng-template #elseBlock>
       <button (click)="createCourse()" color="accent" mat-raised-button>Create Course</button>

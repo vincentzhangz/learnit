@@ -7,6 +7,6 @@ export class Forum {
   forum_content: string = '';
   created_at: Date;
   updated_at: Date;
-  user_id = '';
-  userforum: User;
+  user_id : string =  '';
+  user_forum: User;
 }

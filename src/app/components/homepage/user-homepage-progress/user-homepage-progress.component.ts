@@ -1,4 +1,6 @@
+import { Course } from 'src/app/models/course';
 import {Component, Input, OnInit} from '@angular/core';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-user-homepage-progress',
@@ -8,12 +10,22 @@ import {Component, Input, OnInit} from '@angular/core';
 export class UserHomepageProgressComponent implements OnInit {
   @Input() user: any;
 
-  constructor() {
+  courses:Course
+  constructor(private api: ApiService) {
+    
   }
 
   ngOnInit(): void {
     console.log('Here');
     console.log(this.user);
+    // this.user.user_id
+    this.api.getAllCourses().subscribe(res => this.getCourses(res))
+    // this.api.getEnrolledCourses(this.user.user_id).subscribe(res => this.getCourses(res))
+  }
+
+  getCourses(res:any){
+    this.courses = res;
+    console.log(this.courses)
   }
 
 }
