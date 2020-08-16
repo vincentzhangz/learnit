@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiService} from '../../services/api.service';
 import {User} from '../../models/user';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -11,8 +12,9 @@ export class HomeComponent implements OnInit {
   category: any;
   user: User;
   course: any;
+  enrolledCourse: any = [];
 
-  constructor(private  apiService: ApiService) {
+  constructor(private  apiService: ApiService, private  router: Router) {
   }
 
 
@@ -23,6 +25,7 @@ export class HomeComponent implements OnInit {
 
     this.apiService.getTopCourse().subscribe(res => this.saveCourses(res));
     this.apiService.getAllCategory().subscribe(res => this.saveCategory(res));
+    this.apiService.getEnrolledCourses(sessionStorage.getItem('userId')).subscribe(res => this.saveEnrolled(res));
 
   }
 
@@ -40,5 +43,18 @@ export class HomeComponent implements OnInit {
 
   saveCategory(response): any {
     this.category = response;
+  }
+
+  saveEnrolled(response): any {
+    let count = response.listCourse.length;
+
+    for (let i = 0; i < count; i++) {
+      this.enrolledCourse.push(response.listCourse[i][0]);
+    }
+    console.log(this.enrolledCourse);
+  }
+
+  goToCourseDetail(courseId): void {
+    this.router.navigateByUrl('course/' + courseId);
   }
 }

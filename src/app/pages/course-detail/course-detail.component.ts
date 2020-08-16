@@ -18,6 +18,7 @@ export class CourseDetailComponent implements OnInit {
   course: Course;
   id: string;
   loggedIn: boolean;
+  enrolled: boolean;
 
   constructor(private fileService: UploadFileService,
               private api: ApiService,
@@ -31,6 +32,8 @@ export class CourseDetailComponent implements OnInit {
     } else {
       this.loggedIn = false;
     }
+    this.api.getEnrolledCourses(sessionStorage.getItem('userId')).subscribe(res => this.checkEnrolled(res));
+
     this.courses = {
       module: [
         {
@@ -56,19 +59,49 @@ export class CourseDetailComponent implements OnInit {
       title: '',
     }
     ];
-    this.id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.id = this.activatedRoute.snapshot.paramMap.get('id').toString();
     this.api.getCourseById(this.id).subscribe(res => {
       this.saveCourse(res);
     });
   }
 
+  checkEnrolled(response): void {
+    let count = response.listCourse.length;
+    let data = [];
+    for (let i = 0; i < count; i++) {
+      data.push(response.listCourse[i][0].course_id);
+    }
+    if (data.indexOf(this.id) !== -1) {
+      this.enrolled = false;
+    } else {
+      this.enrolled = true;
+    }
+
+
+  }
+
   saveCourse(response): void {
     this.course = response;
-    console.table(this.course);
   }
 
   doUpload(idTitle: string): void {
     document.getElementById(idTitle).click();
   }
 
+  enroll(): void {
+    let data = {
+      user_id: sessionStorage.getItem('userId'),
+      course_id: this.id
+    };
+    this.api.enrollCourse(data).subscribe(res => this.success(res));
+  }
+
+  success(res): void {
+    if (!res.error) {
+      alert('Success enroll');
+    } else {
+      alert('Failed to enroll');
+    }
+    window.location.reload();
+  }
 }
