@@ -14,6 +14,9 @@
       <div>
         <ngx-stars [color]="'#ffbb00'" [readonly]="true" [size]="1" initialStars="{{course.rating}}"></ngx-stars>
       </div>
+      <div *ngIf="enrolled">
+        <button mat-raised-button (click)="enroll()" color="primary">Enroll</button>
+      </div>
     </div>
   </div>
 
