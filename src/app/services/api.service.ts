@@ -9,14 +9,16 @@ import {Comment} from '../models/comment';
   providedIn: 'root'
 })
 export class ApiService {
-  host = 'http://127.0.0.1:8080';
+  host = 'https://gh2020api.vincentzhangz.com/';
   url = `${this.host}/api/v1`;
 
   constructor(private httpClient: HttpClient) {
   }
+
   public login(user: any): Observable<any> {
     return this.httpClient.post(`${this.url}/login`, user);
   }
+
   public register(user: any): Observable<any> {
     return this.httpClient.post(`${this.url}/register`, user);
   }
