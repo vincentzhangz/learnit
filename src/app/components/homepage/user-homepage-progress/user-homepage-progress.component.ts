@@ -18,7 +18,7 @@ export class UserHomepageProgressComponent implements OnInit {
 
   ngOnInit(): void {
     this.api.getProgress(sessionStorage.getItem('userId')).subscribe(res => this.setProgress(res));
-    this.api.getEnrolledCourses(this.user.user_id).subscribe(res => console.log(res));
+    // this.api.getEnrolledCourses(this.user.user_id).subscribe(res => console.log(res));
   }
 
   setProgress(res: any): void {

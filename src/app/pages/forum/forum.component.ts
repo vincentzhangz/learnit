@@ -47,7 +47,6 @@ export class ForumComponent implements OnInit {
 
   saveForum(response): void {
     this.forums = response;
-    console.log(this.forums);
   }
 
   postForum(): void {
@@ -57,7 +56,6 @@ export class ForumComponent implements OnInit {
     }
     this.forum.course_id = this.selectedCourse.course_id;
     this.forum.user_id = sessionStorage.getItem('userId');
-    // console.log(this.forum)
     this.api.postForum(this.forum).subscribe(res => {
       alert('success');
       window.location.reload();

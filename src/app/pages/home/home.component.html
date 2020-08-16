@@ -12,4 +12,11 @@
     <app-item-card-category [category]="category"></app-item-card-category>
   </div>
 
+  <div *ngIf="enrolledCourse" style="max-width: 90%;margin: auto">
+    <h1>Enrolled Course</h1>
+    <mat-card *ngFor="let e of enrolledCourse" class="course-card-small" (click)="goToCourseDetail(e.course_id)">
+      <mat-card-title>{{e.course_title}} by {{e.teacher.user_name}}</mat-card-title>
+    </mat-card>
+  </div>
+
 </div>
