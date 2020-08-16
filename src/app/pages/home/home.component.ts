@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   category: any;
   user: User;
   course: any;
-  enrolledCourse: any = [];
+  enrolledCourse: any;
 
   constructor(private  apiService: ApiService, private  router: Router) {
   }
@@ -21,11 +21,13 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     if (sessionStorage.getItem('userId')) {
       this.getCurrentUser();
+      this.enrolledCourse = [];
+      this.apiService.getEnrolledCourses(sessionStorage.getItem('userId')).subscribe(res => this.saveEnrolled(res));
     }
 
     this.apiService.getTopCourse().subscribe(res => this.saveCourses(res));
     this.apiService.getAllCategory().subscribe(res => this.saveCategory(res));
-    this.apiService.getEnrolledCourses(sessionStorage.getItem('userId')).subscribe(res => this.saveEnrolled(res));
+
 
   }
 
