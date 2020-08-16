@@ -1,11 +1,11 @@
-import {Component, OnChanges, SimpleChanges} from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.sass']
 })
-export class AppComponent implements OnChanges {
+export class AppComponent {
   title = 'learnit';
   userId = sessionStorage.getItem('userId');
 
@@ -14,7 +14,8 @@ export class AppComponent implements OnChanges {
     window.location.href = '/';
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('Change');
+  profile(): void {
+    window.location.href = '/profile';
   }
+
 }

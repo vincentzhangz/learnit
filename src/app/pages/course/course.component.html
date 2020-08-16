@@ -1,4 +1,8 @@
 <div class="container">
+  <div class="button-container" *ngIf="lecturer">
+    <button mat-button (click)="createNewCourse()">Add new Course</button>
+  </div>
+
   <mat-card *ngFor="let course of courses" class="course">
     <div class="course-image">
       <img alt="" src="../../../assets/test_image.jpg">

@@ -9,6 +9,7 @@
     <span class="menu-spacer"></span>
     <div class="navbar" fxHide.lt-md fxShow="true">
       <div>
+        <a mat-button routerLink="/course">Course</a>
         <a mat-button routerLink="/forum">Forum</a>
       </div>
       <div *ngIf="!userId">
@@ -16,6 +17,7 @@
         <button mat-button routerLink="/register">Register</button>
       </div>
       <div *ngIf="userId">
+        <button (click)="profile()" mat-button>Profile</button>
         <button (click)="logout()" mat-button>Logout</button>
       </div>
     </div>
@@ -26,12 +28,14 @@
   <mat-sidenav #sidenav>
     <mat-nav-list>
       <a (click)="sidenav.toggle()" mat-list-item routerLink="/">Home</a>
+      <a (click)="sidenav.toggle()" mat-list-item routerLink="/course">Course</a>
       <a (click)="sidenav.toggle()" mat-list-item routerLink="/forum">Forum</a>
       <div *ngIf="!userId">
         <a (click)="sidenav.toggle()" mat-list-item routerLink="/login">Login</a>
         <a (click)="sidenav.toggle()" mat-list-item routerLink="/register">Register</a>
       </div>
       <div *ngIf="userId">
+        <a (click)="profile()" mat-list-item>Profile</a>
         <a (click)="logout()" mat-list-item>Logout</a>
       </div>
     </mat-nav-list>
