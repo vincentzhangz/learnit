@@ -19,7 +19,6 @@ export class ProfileComponent implements OnInit {
     gender: ['', Validators.required],
     role: ['', Validators.required],
   });
-  uploader: FileUploader = this.fileService.createUploader('localhost:4200/api/image/userimage');
 
   constructor(private fb: FormBuilder,
               private fileService: UploadFileService,
@@ -33,12 +32,23 @@ export class ProfileComponent implements OnInit {
 
   save(): void {
   }
-
+  image:any
   setData(response): void {
     this.user = response;
     this.updateForm.controls[`email`].setValue(this.user.user_email);
     this.updateForm.controls[`name`].setValue(this.user.user_name);
     this.updateForm.controls[`gender`].setValue(this.user.user_gender);
+  }
+  uploadImage(a:any):void{
+    console.log("here")
+    
+    let reader= new FileReader()
+
+    reader.onload = (res:any) => {
+      this.image = res.target.result
+    }
+    reader.readAsDataURL(a.files[0]);
+
   }
 
 }

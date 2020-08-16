@@ -14,11 +14,9 @@ export class ApiService {
 
   constructor(private httpClient: HttpClient) {
   }
-
   public login(user: any): Observable<any> {
     return this.httpClient.post(`${this.url}/login`, user);
   }
-
   public register(user: any): Observable<any> {
     return this.httpClient.post(`${this.url}/register`, user);
   }
